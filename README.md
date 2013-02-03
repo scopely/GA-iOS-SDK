@@ -31,6 +31,7 @@ To start using the iOS API Wrapper you will have to create an account on the web
 	
 	Alternatively, you can use source code and build it yourself. 
 	In case you already have the older version of the binaries, remove them from your project.
+
 2. Click on your project's Frameworks > Add Files to "Your project name".
 
 	![Add Files to](https://github.com/saleksandras/GA-iOS-Wrapper/raw/master/Screenshots/addfiles.png)
