@@ -24,49 +24,49 @@ To start using the iOS API Wrapper you will have to create an account on the web
 ##Installation
 
 1. Download latest version of Games Analytics iOS Wrapper binaries.
-The archive should contain these files:
+	The archive should contain these files:
 
-* `GameAnalytics.h`: The required header file containing methods for Games Analytics.
-* `libGameAnalytics.a`: The required static library for Games Analytics.
-
-Alternatively, you can use source code and build it yourself. 
-In case you already have the older version of the binaries, remove them from your project.
+	* `GameAnalytics.h`: The required header file containing methods for Games Analytics.
+	* `libGameAnalytics.a`: The required static library for Games Analytics.
+	
+	Alternatively, you can use source code and build it yourself. 
+	In case you already have the older version of the binaries, remove them from your project.
 2. Click on your project's Frameworks > Add Files to "Your project name".
 
-![Add Files to](https://github.com/saleksandras/GA-iOS-Wrapper/raw/master/Screenshots/addfiles.png)
-
-Find and select the folder that contains the file named `libGameAnalytics.a`.
-The checkbox "Copy items into destination folder (if needed)" must be checked.
-Choose "Create groups for any added folders" and click Add.  
-
-![Select folder](https://github.com/saleksandras/GA-iOS-Wrapper/raw/master/Screenshots/selectfolder.png)
-
-The files `GameAnalytics.h` and `libGameAnalytics.a` should now be in your project.
-
-![Files added](https://github.com/saleksandras/GA-iOS-Wrapper/raw/master/Screenshots/filesadded.png)
+	![Add Files to](https://github.com/saleksandras/GA-iOS-Wrapper/raw/master/Screenshots/addfiles.png)
+	
+	Find and select the folder that contains the file named `libGameAnalytics.a`.
+	The checkbox "Copy items into destination folder (if needed)" must be checked.
+	Choose "Create groups for any added folders" and click Add.  
+	
+	![Select folder](https://github.com/saleksandras/GA-iOS-Wrapper/raw/master/Screenshots/selectfolder.png)
+	
+	The files `GameAnalytics.h` and `libGameAnalytics.a` should now be in your project.
+	
+	![Files added](https://github.com/saleksandras/GA-iOS-Wrapper/raw/master/Screenshots/filesadded.png)
 
 3. Select your project, target and choose "Build Phases" tab.
-Expand the "Link Binary With Libraries" group and check if it contains `libGameAnalytic.a` library.
-
-![Link Binary With Libraries](https://github.com/saleksandras/GA-iOS-Wrapper/raw/master/Screenshots/linkbinary.png)
-
-In case it is not present there, drag and drop the library from your Project Navigator to the "Link Binary With Libraries" group.
+	Expand the "Link Binary With Libraries" group and check if it contains `libGameAnalytic.a` library.
+	
+	![Link Binary With Libraries](https://github.com/saleksandras/GA-iOS-Wrapper/raw/master/Screenshots/linkbinary.png)
+	
+	In case it is not present there, drag and drop the library from your Project Navigator to the "Link Binary With Libraries" group.
 
 4. In the "Link Binary With Libraries" group click the "+" to add new framework.
-Find the `SystemConfiguration.framework` in the list and click Add.
-
-![Add framework](https://github.com/saleksandras/GA-iOS-Wrapper/raw/master/Screenshots/addframework.png)
-
-`SystemConfiguration.framework` now should be listed under the "Link Binary With Libraries" group.
-
-![SystemConfiguration.framework](https://github.com/saleksandras/GA-iOS-Wrapper/raw/master/Screenshots/systemconfig.png)
-
-This is required for Reachability to manage network operations efficiently.
+	Find the `SystemConfiguration.framework` in the list and click Add.
+	
+	![Add framework](https://github.com/saleksandras/GA-iOS-Wrapper/raw/master/Screenshots/addframework.png)
+	
+	`SystemConfiguration.framework` now should be listed under the "Link Binary With Libraries" group.
+	
+	![SystemConfiguration.framework](https://github.com/saleksandras/GA-iOS-Wrapper/raw/master/Screenshots/systemconfig.png)
+	
+	This is required for Reachability to manage network operations efficiently.
 
 5. Select your project, target and choose "Build Settings" tab.
-Under "Linking" group click on "Other Linker Flags" and add `-ObjC` flag. 
-
-![ObjC flag](https://github.com/saleksandras/GA-iOS-Wrapper/raw/master/Screenshots/objc.png)
+	Under "Linking" group click on "Other Linker Flags" and add `-ObjC` flag. 
+	
+	![ObjC flag](https://github.com/saleksandras/GA-iOS-Wrapper/raw/master/Screenshots/objc.png)
 
 
 ##Usage
