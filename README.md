@@ -26,8 +26,8 @@ To start using the iOS API Wrapper you will have to create an account on the web
 1. Download latest version of Games Analytics iOS Wrapper binaries.
 	The archive should contain these files:
 
-* `GameAnalytics.h`: The required header file containing methods for Games Analytics.
-* `libGameAnalytics.a`: The required static library for Games Analytics.
+	*`GameAnalytics.h`: The required header file containing methods for Games Analytics.*
+	*`libGameAnalytics.a`: The required static library for Games Analytics.*
 	
 	Alternatively, you can use source code and build it yourself. 
 	In case you already have the older version of the binaries, remove them from your project.
