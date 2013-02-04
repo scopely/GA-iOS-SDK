@@ -49,50 +49,38 @@ typedef enum : NSInteger
 -(void)updateSessionID;
 
 /*!
- User data
- Field          Type        Required	Description
- gender         char        No          The gender of the user (M/F).
- birth_year     integer     No          The year the user was born.
- country        string      No          The ISO2 country code the user is playing from.
- state          string      No          The code of the country state the user is playing from.
- friend_count	integer     No          The number of friends in the users network.
+ *  @abstract User data
+ *
+ *  @param params         NSDictionary
+ *
  */
 -(NSURLRequest *)urlRequestUserDataWithParams:(NSDictionary *)params;
 
 
 /*!
- In addition, the design, business, and quality categories share these five fields:
- 
- Field      Type	Required	Description
- event_id	string	Yes         Identifies the event. This field can be sub-categorized by using ":" notation. For example, an event_id could be: "PickedUpAmmo:Shotgun" (for design), "Purchase:RocketLauncher" (for business), or "Exception:NullReference" (for quality).
- area       string	No          Indicates the area or game level where the event occurred.
- x          float	No          X-position where the event occurred.
- y          float	No          Y-position where the event occurred.
- z          float	No          Z-position where the event occurred.
- */
-
-
-/*!
- Game design data
- Field	Type	Required	Description
- value	float	No          Numeric value which may be used to enhance the event_id. For example, if the event_id is "PickedUpAmmo:Shotgun", the value could indicate the number of shotgun shells gained.
+ *  @abstract Game design data
+ *
+ *  @param params         NSDictionary
+ *
  */
 -(NSURLRequest *)urlRequestGameDesignDataWithParams:(NSDictionary *)params;
 
 /*!
- Business data
- Field      Type        Required	Description
- currency	string      No          A custom string for identifying the currency. For example "USD", "US Dollars" or "GA Dollars". Conversion between different real currencies should be done before sending the amount to the API.
- amount     integer     No          Numeric value which corresponds to the cost of the purchase in the monetary unit divided by 100. For example, if the currency is "USD", the amount should be specified in cents.
+ *  @abstract Business data
+ *
+ *  @param params         NSDictionary
+ *
  */
 -(NSURLRequest *)urlRequestBusinessDataWithParams:(NSDictionary *)params;
 
 /*!
  *  @abstract Quality Assurance data
- Field      Type	Required	Description
- message	string	No          Used to describe the event in further detail. For example, in the case of an exception the message could contain the stack trace.
+ *
+ *  @param params         NSDictionary
+ *
  */
 -(NSURLRequest *)urlRequestQualityAssuranceDataWithParams:(NSDictionary *)params;
+
 
 /*!
  *  @abstract Handler that you implement to monitor reachability changes

@@ -38,47 +38,59 @@ static GAAPIHelper *_apiHelper;
 
 + (void)logUserDataWithParams:(NSDictionary *)params
 {
-    NSURLRequest *urlRequest = [self.apiHelper urlRequestUserDataWithParams:params];
+    if([self.apiHelper isReachable])
+    {
+        NSURLRequest *urlRequest = [self.apiHelper urlRequestUserDataWithParams:params];
 
-    GARequest *request = [[GARequest alloc] initWithURLRequest:urlRequest];
-    
-    [request start];
+        GARequest *request = [[GARequest alloc] initWithURLRequest:urlRequest];
+        
+        [request start];
+    }
 }
 
 + (void)logGameDesignDataEvent:(NSString *)eventID withParams:(NSDictionary *)params
 {
-    NSMutableDictionary *mutableParams = [params mutableCopy];
-    [mutableParams setObject:eventID forKey:@"event_id"];
+    if([self.apiHelper isReachable])
+    {
+        NSMutableDictionary *mutableParams = [params mutableCopy];
+        [mutableParams setObject:eventID forKey:@"event_id"];
 
-    NSURLRequest *urlRequest = [self.apiHelper urlRequestGameDesignDataWithParams:[mutableParams copy]];
-    
-    GARequest *request = [[GARequest alloc] initWithURLRequest:urlRequest];
+        NSURLRequest *urlRequest = [self.apiHelper urlRequestGameDesignDataWithParams:[mutableParams copy]];
+        
+        GARequest *request = [[GARequest alloc] initWithURLRequest:urlRequest];
 
-    [request start];
+        [request start];
+    }
 }
 
 + (void)logBusinessDataEvent:(NSString *)eventID withParams:(NSDictionary *)params
 {
-    NSMutableDictionary *mutableParams = [params mutableCopy];
-    [mutableParams setObject:eventID forKey:@"event_id"];
+    if([self.apiHelper isReachable])
+    {
+        NSMutableDictionary *mutableParams = [params mutableCopy];
+        [mutableParams setObject:eventID forKey:@"event_id"];
 
-    NSURLRequest *urlRequest = [self.apiHelper urlRequestBusinessDataWithParams:[mutableParams copy]];
-    
-    GARequest *request = [[GARequest alloc] initWithURLRequest:urlRequest];
+        NSURLRequest *urlRequest = [self.apiHelper urlRequestBusinessDataWithParams:[mutableParams copy]];
+        
+        GARequest *request = [[GARequest alloc] initWithURLRequest:urlRequest];
 
-    [request start];
+        [request start];
+    }
 }
 
 + (void)logQualityAssuranceDataEvent:(NSString *)eventID withParams:(NSDictionary *)params
 {
-    NSMutableDictionary *mutableParams = [params mutableCopy];
-    [mutableParams setObject:eventID forKey:@"event_id"];
-    
-    NSURLRequest *urlRequest = [self.apiHelper urlRequestQualityAssuranceDataWithParams:[mutableParams copy]];
-    
-    GARequest *request = [[GARequest alloc] initWithURLRequest:urlRequest];
-    
-    [request start];
+    if([self.apiHelper isReachable])
+    {
+        NSMutableDictionary *mutableParams = [params mutableCopy];
+        [mutableParams setObject:eventID forKey:@"event_id"];
+        
+        NSURLRequest *urlRequest = [self.apiHelper urlRequestQualityAssuranceDataWithParams:[mutableParams copy]];
+        
+        GARequest *request = [[GARequest alloc] initWithURLRequest:urlRequest];
+        
+        [request start];
+    }
 }
 
 + (void)updateSessionID

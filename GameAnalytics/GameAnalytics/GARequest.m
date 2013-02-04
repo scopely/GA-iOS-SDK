@@ -32,6 +32,7 @@ static BOOL archiveDataEnabled = NO;
     }
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        
         inProgressRequestsMutableSet = [NSMutableSet set];
         inProgressRequestsMutableSetAccessQueue = dispatch_queue_create("com.inProgressRequestsMutableSetSetAccessQueue", DISPATCH_QUEUE_SERIAL);
     });

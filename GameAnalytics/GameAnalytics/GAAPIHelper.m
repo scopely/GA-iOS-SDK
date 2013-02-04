@@ -16,6 +16,7 @@
 
 @interface GAAPIHelper ()
 
+
 @property (strong, nonatomic) Reachability *reachability;
 
 - (void)commonInit;
@@ -53,19 +54,18 @@
 {
     if (!self.host) {
         _host = @"http://api.gameanalytics.com";
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(reachabilityChanged:)
-                                                     name:kReachabilityChangedNotification
-                                                   object:nil];
-
-        self.reachability = [Reachability reachabilityWithHostname:self.host];
-        [self.reachability startNotifier];
-        
     }
     if (!self.apiVersion) {
         _apiVersion = @"1";
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reachabilityChanged:)
+                                                 name:kReachabilityChangedNotification
+                                               object:nil];
+
+    self.reachability = [Reachability reachabilityWithHostname:@"api.gameanalytics.com"];
+    [self.reachability startNotifier];
 }
 
 #pragma mark - Private Methods
@@ -202,23 +202,19 @@
 
 -(void) reachabilityChanged:(NSNotification*) notification
 {
+    NSString *host = @"http://api.gameanalytics.com";
+    NSLog(@"reachabilityChanged");
     if([self.reachability currentReachabilityStatus] == ReachableViaWiFi)
     {
-        NSLog(@"Server [%@] is reachable via Wifi", self.host);
-        //[_sharedNetworkQueue setMaxConcurrentOperationCount:6];
-        
-        //[self checkAndRestoreFrozenOperations];
+        NSLog(@"Server [%@] is reachable via Wifi", host);
     }
     else if([self.reachability currentReachabilityStatus] == ReachableViaWWAN)
     {
-        NSLog(@"Server [%@] is reachable only via cellular data", self.host);
-        //[_sharedNetworkQueue setMaxConcurrentOperationCount:2];
-        //[self checkAndRestoreFrozenOperations];
+        NSLog(@"Server [%@] is reachable only via cellular data", host);
     }
     else if([self.reachability currentReachabilityStatus] == NotReachable)
     {
-        NSLog(@"Server [%@] is not reachable", self.host);
-        //[self freezeOperations];
+        NSLog(@"Server [%@] is not reachable", host);
     }
     
     if(self.reachabilityChangedHandler) {
@@ -226,17 +222,21 @@
     }
 }
 
--(BOOL) isReachable {
+-(BOOL) isReachable
+{
     
     return ([self.reachability currentReachabilityStatus] != NotReachable);
 }
 
 #pragma mark Memory Mangement
 
--(void) dealloc {
-    
+-(void) dealloc
+{
+    NSLog(@"GAAPIHelper dealloc");
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
 }
+
+
 
 @end
 
