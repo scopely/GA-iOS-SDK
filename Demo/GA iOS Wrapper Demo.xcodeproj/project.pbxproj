@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F81A8CAD16BFE76A0017EB24 /* libGameAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F81A8CAC16BFE76A0017EB24 /* libGameAnalytics.a */; };
 		F82F796116BEF10300D6D147 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F82F796016BEF10300D6D147 /* SystemConfiguration.framework */; };
-		F82F796316BEF8DA00D6D147 /* libGameAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F82F796216BEF8DA00D6D147 /* libGameAnalytics.a */; };
 		F838023016BEC4EB00C5A8EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F838022F16BEC4EB00C5A8EE /* UIKit.framework */; };
 		F838023216BEC4EB00C5A8EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F838023116BEC4EB00C5A8EE /* Foundation.framework */; };
 		F838023416BEC4EB00C5A8EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F838023316BEC4EB00C5A8EE /* CoreGraphics.framework */; };
@@ -24,9 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F81A8CAC16BFE76A0017EB24 /* libGameAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGameAnalytics.a; sourceTree = "<group>"; };
 		F82F795D16BEF0B400D6D147 /* GameAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameAnalytics.h; sourceTree = "<group>"; };
 		F82F796016BEF10300D6D147 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		F82F796216BEF8DA00D6D147 /* libGameAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGameAnalytics.a; sourceTree = "<group>"; };
 		F838022C16BEC4EB00C5A8EE /* GA iOS Wrapper Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GA iOS Wrapper Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F838022F16BEC4EB00C5A8EE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F838023116BEC4EB00C5A8EE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -55,7 +55,7 @@
 				F838023016BEC4EB00C5A8EE /* UIKit.framework in Frameworks */,
 				F838023216BEC4EB00C5A8EE /* Foundation.framework in Frameworks */,
 				F838023416BEC4EB00C5A8EE /* CoreGraphics.framework in Frameworks */,
-				F82F796316BEF8DA00D6D147 /* libGameAnalytics.a in Frameworks */,
+				F81A8CAD16BFE76A0017EB24 /* libGameAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				F82F795D16BEF0B400D6D147 /* GameAnalytics.h */,
-				F82F796216BEF8DA00D6D147 /* libGameAnalytics.a */,
+				F81A8CAC16BFE76A0017EB24 /* libGameAnalytics.a */,
 			);
 			path = GameAnalyticsSDK0.1;
 			sourceTree = "<group>";

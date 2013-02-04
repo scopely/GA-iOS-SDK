@@ -18,10 +18,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
-    [self.toggleLogButton setTitle:@"Disable Debug Log" forState:UIControlStateNormal];
-    [GameAnalytics setDebugLogEnabled:YES];
-    
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.toggleLogButton setTitle:@"Enable Debug Log" forState:UIControlStateNormal];
+    //[GameAnalytics setDebugLogEnabled:YES];
 }
 
 - (void)didReceiveMemoryWarning
