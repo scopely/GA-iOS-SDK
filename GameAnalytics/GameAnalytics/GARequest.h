@@ -2,11 +2,23 @@
 //  GARequest.h
 //  GameAnalytics
 //
-//  Created by Aleksandras Smirnovas on 2/2/13.
+//  Created by Aleksandras Smirnovas on 2/4/13.
 //  Copyright (c) 2013 Aleksandras Smirnovas. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+
+typedef enum
+{
+    GAErrorBadRequest = 400,//Bad Request/Game not found/Data not found
+    GAErrorUnauthorized = 401,//Unauthorized/Signature not found in request
+    GAErrorForbidden = 403,
+    GAErrorGameKeyNotFound = 404,//Game key not found/Method not found
+    GAErrorInternalServerError = 500,
+    GAErrorNotImplemented = 501
+} _GAError;
+
+typedef signed short GAError;
 
 typedef enum : NSInteger
 {
@@ -15,22 +27,18 @@ typedef enum : NSInteger
     GARequestStatusCompleted,
     GARequestStatusFailed,
     GARequestStatusCancelled
-}GARequestStatus;
+} _GARequestStatus;
 
-@interface GARequest : NSObject
+typedef signed short GARequestStatus;
 
-@property (nonatomic, readonly) NSURLRequest *urlRequest;
-@property (nonatomic, readonly) GARequestStatus requestStatus;
+@interface GARequest : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate, NSCoding, NSCopying>
 
 -(id)initWithURLRequest:(NSURLRequest *)urlRequest;
 
--(NSURLConnection *)urlConnectionForURLRequest:(NSURLRequest *)request;
+-(BOOL)isFinished;
 
 -(void)start;
 
 -(void)cancel;
-
-+(void)setDebugLogEnabled:(BOOL)value;
-+(void)setArchiveDataEnabled:(BOOL)value;
 
 @end

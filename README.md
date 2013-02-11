@@ -90,14 +90,14 @@ Add these method calls to your code to register every occurrence of the events.
 
 ###User data
 
-Used to mark messages that are related to tracking demographic information about individual users (players). 
+Used to tracking demographic information about individual users (players). 
 Log User data example:
 
     [GameAnalytics logUserDataWithParams:@{@"gender" : @"M", @"birth_year" : @1981, @"country" : @"LT", @"state" : @"VNO", @"friend_count" : @10}];
 
 ###Game design data
 
-Used for messages related to tracking game design events, for example level completion time.
+Used to tracking game design events, for example level completion time.
 Log Game design data example:
 
     [GameAnalytics logGameDesignDataEvent:@"PickedUpAmmo:Shotgun" withParams:@{@"area" : @"Level 1", @"x" : @1.0f, @"y" : @1.0f, @"z" : @1.0f, @"value" : @1.0f}];
@@ -111,7 +111,7 @@ Log Business data example:
 
 ###Quality Assurance data
 
-Used for tracking events related to quality assurance, such as crashes, system specifications, etc.
+Used to tracking events related to quality assurance, such as crashes, system specifications, etc.
 Log Quality Assurance data example:
 
     [GameAnalytics logQualityAssuranceDataEvent:@"Exceptaion:NullReferenceException" withParams:@{ @"area" : @"Level 1", @"x" : @1.0f, @"y" : @1.0f, @"z" : @1.0f, @"message" : @"at Infragistics.Windows.Internal.TileManager.ItemRowColumnSizeInfo.."}];
@@ -128,13 +128,13 @@ To update the session ID when you need to start a new session use the following 
 ####Set custom user ID
 
 Set custom user ID, if you don't want to use default OpenUDID.
-The default setting for this method is NO.
 
 	+ (void)setCustomUserID:(NSString *)udid;
 
 ####Enable debug logs to console
 
 Enabling this option will cause the Game Analytics wrapper to print additional debug information, such as the status of each submit to the server.
+The default setting for this method is NO.
 
 	+ (void)setDebugLogEnabled:(BOOL)value;
 
@@ -150,7 +150,7 @@ The default setting for this method is NO.
 
 ##Todo
 
-- Exception Handling support
+- Exception Handling demo
 - Finish tests
 - Feedback GUI
 

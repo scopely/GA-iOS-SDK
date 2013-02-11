@@ -7,113 +7,75 @@
 //
 
 #import "GameAnalytics.h"
-#import "GARequest.h"
-#import "GAAPIHelper.h"
+#import "GAEngine.h"
+#import "GASettings.h"
 
 @interface GameAnalytics ()
-
-@property(nonatomic, strong) GARequest *gaRequest;
-
-+(GAAPIHelper *)apiHelper;
 
 @end
 
 @implementation GameAnalytics
 
-static GAAPIHelper *_apiHelper;
+static GAEngine *_gaEngine;
 
-+(GAAPIHelper *)apiHelper
++(GAEngine *)gaEngine
 {
-    return _apiHelper;
+    return _gaEngine;
 }
 
 + (void)setGameKey:(NSString *)gameKey secretKey:(NSString *)secretKey build:(NSString *)build
 {
-    _apiHelper = [[GAAPIHelper alloc] initWithHost:nil
-                                        apiVersion:nil
-                                           gameKey:gameKey
+    _gaEngine = [[GAEngine alloc] initWithHGameKey:gameKey
                                          secretKey:secretKey
                                              build:build];
 }
 
 + (void)logUserDataWithParams:(NSDictionary *)params
 {
-    if([self.apiHelper isReachable])
-    {
-        NSURLRequest *urlRequest = [self.apiHelper urlRequestUserDataWithParams:params];
-
-        GARequest *request = [[GARequest alloc] initWithURLRequest:urlRequest];
-        
-        [request start];
-    }
+    [self.gaEngine logUserDataWithParams:params];
 }
 
 + (void)logGameDesignDataEvent:(NSString *)eventID withParams:(NSDictionary *)params
 {
-    if([self.apiHelper isReachable])
-    {
-        NSMutableDictionary *mutableParams = [params mutableCopy];
-        [mutableParams setObject:eventID forKey:@"event_id"];
-
-        NSURLRequest *urlRequest = [self.apiHelper urlRequestGameDesignDataWithParams:[mutableParams copy]];
-        
-        GARequest *request = [[GARequest alloc] initWithURLRequest:urlRequest];
-
-        [request start];
-    }
+    [self.gaEngine logGameDesignDataEvent:eventID withParams:params];
 }
 
 + (void)logBusinessDataEvent:(NSString *)eventID withParams:(NSDictionary *)params
 {
-    if([self.apiHelper isReachable])
-    {
-        NSMutableDictionary *mutableParams = [params mutableCopy];
-        [mutableParams setObject:eventID forKey:@"event_id"];
-
-        NSURLRequest *urlRequest = [self.apiHelper urlRequestBusinessDataWithParams:[mutableParams copy]];
-        
-        GARequest *request = [[GARequest alloc] initWithURLRequest:urlRequest];
-
-        [request start];
-    }
+    [self.gaEngine logBusinessDataEvent:eventID withParams:params];
 }
 
 + (void)logQualityAssuranceDataEvent:(NSString *)eventID withParams:(NSDictionary *)params
 {
-    if([self.apiHelper isReachable])
-    {
-        NSMutableDictionary *mutableParams = [params mutableCopy];
-        [mutableParams setObject:eventID forKey:@"event_id"];
-        
-        NSURLRequest *urlRequest = [self.apiHelper urlRequestQualityAssuranceDataWithParams:[mutableParams copy]];
-        
-        GARequest *request = [[GARequest alloc] initWithURLRequest:urlRequest];
-        
-        [request start];
-    }
+    [self.gaEngine logQualityAssuranceDataEvent:eventID withParams:params];
 }
 
 + (void)updateSessionID
 {
-    [self.apiHelper updateSessionID];
+    [self.gaEngine updateSessionID];
 }
 
 
 #pragma mark - Custom options
 
-+ (void)setCustomUserID:(NSString *)udid
++ (void)setCustomUserID:(NSString *)userID
 {
-    
+    [GASettings setCustomUserID:userID];
 }
 
 + (void)setDebugLogEnabled:(BOOL)value
 {
-    [GARequest setDebugLogEnabled:value];
+    [GASettings setDebugLogEnabled:value];
 }
 
 + (void)setArchiveDataEnabled:(BOOL)value
 {
-    [GARequest setArchiveDataEnabled:value];
+    [GASettings setArchiveDataEnabled:value];
+}
+
++ (void)setArchiveDataLimit:(NSInteger)limit
+{
+    [GASettings setArchiveDataLimit:limit];
 }
 
 @end

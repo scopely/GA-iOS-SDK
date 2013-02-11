@@ -14,7 +14,7 @@
  *  @abstract Starts a GameAnalytics session using the Game and Sectret Keys for this Application
  *
  *  @param gameKey Your appliations's game key.
- * 
+ *
  *  @note Go to the https://beta.gameanalytics.com/ to register for your game and secret keys.
  *
  *  @param secretKey Your appliations's secret key
@@ -28,7 +28,7 @@
 /*!
  *  @abstract User data
  *
- *  @note Used for tracking demographic information about individual users (players). 
+ *  @note Used for tracking demographic information about individual users (players).
  *
  *                        Type        Required	 Description
  *  @param gender         char        No          The gender of the user (M/F).
@@ -43,7 +43,7 @@
 
 /*!
  *  @abstract Game design data
- * 
+ *
  *  @note Used to tracking game design events, for example level completion time.
  *
  *                      Type         Required	  Description
@@ -109,7 +109,7 @@
  *  @param value    string  Custom user ID
  *
  */
-+ (void)setCustomUserID:(NSString *)udid;
++ (void)setCustomUserID:(NSString *)userID;
 
 /*!
  *  @abstract Enable debug logs to console.
@@ -125,7 +125,6 @@
  */
 + (void)setDebugLogEnabled:(BOOL)value;
 
-
 /*!
  *  @abstract Enable archive Data for offline usage.
  *
@@ -136,9 +135,19 @@
  *
  *  @note The default setting for this method is NO.
  *
- *  @param value @c YES to show debug logs, @c NO to omit. 
+ *  @param value @c YES to show debug logs, @c NO to omit.
  *
  */
 + (void)setArchiveDataEnabled:(BOOL)value;
+
+/*!
+ *  @abstract Set maximum number of events to be archived.
+ *
+ *  @note The default setting for this method is 100.
+ *
+ *  @param limit
+ *
+ */
++ (void)setArchiveDataLimit:(NSInteger)limit;
 
 @end

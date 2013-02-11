@@ -2,163 +2,172 @@
 //  GARequest.m
 //  GameAnalytics
 //
-//  Created by Aleksandras Smirnovas on 2/2/13.
+//  Created by Aleksandras Smirnovas on 2/4/13.
 //  Copyright (c) 2013 Aleksandras Smirnovas. All rights reserved.
 //
 
 #import "GARequest.h"
+#import "GASettings.h"
 
-@interface GARequest () <NSURLConnectionDataDelegate>
+@interface GARequest ()
+{
+    NSURLConnection *urlConnection;
+}
+
+@property (strong, nonatomic) NSURLRequest *request;
+@property (nonatomic, readonly) GARequestStatus state;
+
+-(void)setState:(GARequestStatus)state;
 
 @end
 
 @implementation GARequest
-{
-    NSURLConnection *urlConnection;
-    NSMutableData *connectionMutableData;
-}
 
-static NSMutableSet *inProgressRequestsMutableSet;
-static dispatch_queue_t inProgressRequestsMutableSetAccessQueue;
-
-static BOOL debugLogEnabled = NO;
-static BOOL archiveDataEnabled = NO;
-
-+(void)initialize
-{
-    if(debugLogEnabled)
-    {
-        NSLog(@"GA initialize");
-    }
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        
-        inProgressRequestsMutableSet = [NSMutableSet set];
-        inProgressRequestsMutableSetAccessQueue = dispatch_queue_create("com.inProgressRequestsMutableSetSetAccessQueue", DISPATCH_QUEUE_SERIAL);
-    });
-}
-
-#pragma mark - Private Instance Methods
+#pragma mark - Public Methods
 
 -(id)initWithURLRequest:(NSURLRequest *)urlRequest
 {
-    if (!(self = [super init])) return nil;
-    
-    _urlRequest = urlRequest;
-    _requestStatus = GARequestStatusNotStarted;
-    
+    if((self = [super init])) {
+        _request = urlRequest;
+        _state = GARequestStatusNotStarted;
+    }
     return self;
 }
 
--(NSURLConnection *)urlConnectionForURLRequest:(NSURLRequest *)request
-{
-    return [[NSURLConnection alloc] initWithRequest:request delegate:self];
-}
-
-#pragma mark - Public Instance Methods
-
 -(void)start
 {
-    if (self.requestStatus != GARequestStatusNotStarted && debugLogEnabled)
+    if (self.state != GARequestStatusNotStarted && self.state != GARequestStatusCancelled)
     {
         NSLog(@"Attempt to start existing request. Ignoring.");
+        return;
     }
     
-    _requestStatus = GARequestStatusStarted;
+    urlConnection = [[NSURLConnection alloc] initWithRequest:self.request
+                                                    delegate:self
+                                            startImmediately:NO];
     
-    connectionMutableData = [NSMutableData data];
-
-    urlConnection = [self urlConnectionForURLRequest:self.urlRequest];
     [urlConnection scheduleInRunLoop:[NSRunLoop mainRunLoop]
                              forMode:NSDefaultRunLoopMode];
     
     [urlConnection start];
     
-    [GARequest addRequestToInProgressMutableSet:self];
+    [self setState:GARequestStatusStarted];
+    
 }
+
+-(BOOL)isFinished
+{
+    if(self.state == GARequestStatusCompleted || self.state == GARequestStatusFailed  || self.state == GARequestStatusCancelled)
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+}
+
 
 -(void)cancel
 {
     [urlConnection cancel];
-    _requestStatus = GARequestStatusCancelled;
+    [self setState:GARequestStatusCancelled];
+}
+
+-(void)setState:(GARequestStatus)state
+{
+    [self willChangeValueForKey:@"state"];
+    _state = state;
+    [self didChangeValueForKey:@"state"];
     
-    [GARequest removeRequestFromInProgressMutableSet:self];
-}
-
-+(void)setDebugLogEnabled:(BOOL)value
-{
-    debugLogEnabled = value;
-}
-
-+(void)setArchiveDataEnabled:(BOOL)value
-{
-    archiveDataEnabled = value;
-}
-
-#pragma mark - Private class methods
-
-+(void)addRequestToInProgressMutableSet:(GARequest *)request
-{
-    dispatch_sync(inProgressRequestsMutableSetAccessQueue, ^{
-        [inProgressRequestsMutableSet addObject:request];
-    });
-}
-
-+(void)removeRequestFromInProgressMutableSet:(GARequest *)request
-{
-    dispatch_sync(inProgressRequestsMutableSetAccessQueue, ^{
-        if ([inProgressRequestsMutableSet containsObject:request])
-        {
-            [inProgressRequestsMutableSet removeObject:request];
-        }
-    });
-}
-
-#pragma mark - NSURLConnectionDelegate Methods
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    if(debugLogEnabled)
+    if (state == GARequestStatusStarted)
     {
-        NSLog(@"GARequest to %@ failed with error: %@", self.urlRequest.URL, error.localizedDescription);
+        //[self addSelfToActiveRequestsSet];
     }
+    else if (state == GARequestStatusCompleted || state == GARequestStatusFailed  || state == GARequestStatusCancelled)
+    {
+        //[self removeSelfFromActiveRequestsSet];
+        //TODO: [GARequest removeRequestFromInProgressMutableSet:self];
+        
+        urlConnection = nil;
+    }
+}
 
-    _requestStatus = GARequestStatusFailed;
+#pragma mark - NSCoding
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    NSURLRequest *request = [decoder decodeObjectForKey:@"request"];
     
-    [GARequest removeRequestFromInProgressMutableSet:self];
+    self = [self initWithURLRequest:request];
+    if (!self) {
+        return nil;
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:self.request forKey:@"request"];
+}
+
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    GARequest *object = [(GARequest *)[[self class] allocWithZone:zone] initWithURLRequest:self.request];
+    
+    return object;
+}
+
+-(void) dealloc {
+    if(urlConnection)
+    {
+        [urlConnection cancel];
+        urlConnection = nil;
+    }
+}
+
+#pragma mark -
+
+#pragma mark - NSURLConnectionDelegate
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    
+    if([GASettings isDebugLogEnabled])
+        NSLog(@"GARequest to %@ failed with error: %@", self.request.URL, error.localizedDescription);
+    
+    [self setState:GARequestStatusFailed];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-
-    if(debugLogEnabled)
-    {
-        NSLog(@"GA response with statusCode: %d", httpResponse.statusCode);
-    }
     
     if (httpResponse.statusCode != 202)//Accepted
     {
-        [connection cancel];
-        _requestStatus = GARequestStatusFailed;
+        if([GASettings isDebugLogEnabled])
+            NSLog(@"GARequest finished with repsonse error: %d", httpResponse.statusCode);
         
-        [GARequest removeRequestFromInProgressMutableSet:self];
+        [urlConnection cancel];
+        [self setState:GARequestStatusFailed];
+        
+    } else if([GASettings isDebugLogEnabled]) {
+        NSLog(@"GARequest finished succesefuly");
     }
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    [connectionMutableData appendData:data];
-}
+//No reason to read data
+/*
+ - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+ }
+ */
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    _requestStatus = GARequestStatusCompleted;
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     
-    //NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:connectionMutableData options:0 error:nil];
-    //NSLog(@"response: %@", responseDictionary);
-    
-    [GARequest removeRequestFromInProgressMutableSet:self];
+    [self setState:GARequestStatusCompleted];
 }
 
 @end

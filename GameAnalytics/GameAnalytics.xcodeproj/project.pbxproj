@@ -17,8 +17,6 @@
 		F83234EF16BD1053007A1B4E /* GameAnalyticsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F83234EE16BD1053007A1B4E /* GameAnalyticsTests.m */; };
 		F832350816BD190D007A1B4E /* GARequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F832350716BD190D007A1B4E /* GARequest.m */; };
 		F832350916BD190D007A1B4E /* GARequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F832350716BD190D007A1B4E /* GARequest.m */; };
-		F832350C16BD1979007A1B4E /* GAAPIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F832350B16BD1979007A1B4E /* GAAPIHelper.m */; };
-		F832350D16BD1979007A1B4E /* GAAPIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F832350B16BD1979007A1B4E /* GAAPIHelper.m */; };
 		F83235B516BD3B91007A1B4E /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = F832358D16BD3B90007A1B4E /* OpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F83235BB16BD3B91007A1B4E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F83235B216BD3B91007A1B4E /* Reachability.m */; };
 		F83235C716BD3D0A007A1B4E /* NSData+md5.m in Sources */ = {isa = PBXBuildFile; fileRef = F83235C416BD3D0A007A1B4E /* NSData+md5.m */; };
@@ -29,6 +27,11 @@
 		F83235CE16BD40FB007A1B4E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83235CD16BD40FA007A1B4E /* SystemConfiguration.framework */; };
 		F83235ED16BDA5E3007A1B4E /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F83235E516BDA5E3007A1B4E /* libOCMock.a */; };
 		F83235F016BDA864007A1B4E /* GARequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F83235EF16BDA864007A1B4E /* GARequestTest.m */; };
+		F838D01216C9717500CF5ED7 /* GAEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = F838D01116C9717500CF5ED7 /* GAEngine.m */; };
+		F838D01316C9717500CF5ED7 /* GAEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = F838D01116C9717500CF5ED7 /* GAEngine.m */; };
+		F838D01616C971C600CF5ED7 /* GASettings.m in Sources */ = {isa = PBXBuildFile; fileRef = F838D01516C971C600CF5ED7 /* GASettings.m */; };
+		F838D01716C971C600CF5ED7 /* GASettings.m in Sources */ = {isa = PBXBuildFile; fileRef = F838D01516C971C600CF5ED7 /* GASettings.m */; };
+		F838D01816C973E800CF5ED7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83234E116BD1053007A1B4E /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +72,6 @@
 		F83234EE16BD1053007A1B4E /* GameAnalyticsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameAnalyticsTests.m; sourceTree = "<group>"; };
 		F832350616BD190D007A1B4E /* GARequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GARequest.h; sourceTree = "<group>"; };
 		F832350716BD190D007A1B4E /* GARequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GARequest.m; sourceTree = "<group>"; };
-		F832350A16BD1979007A1B4E /* GAAPIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAAPIHelper.h; sourceTree = "<group>"; };
-		F832350B16BD1979007A1B4E /* GAAPIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAAPIHelper.m; sourceTree = "<group>"; };
 		F832358C16BD3B90007A1B4E /* OpenUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenUDID.h; sourceTree = "<group>"; };
 		F832358D16BD3B90007A1B4E /* OpenUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenUDID.m; sourceTree = "<group>"; };
 		F83235B116BD3B91007A1B4E /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -89,6 +90,10 @@
 		F83235EC16BDA5E3007A1B4E /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 		F83235EE16BDA863007A1B4E /* GARequestTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GARequestTest.h; sourceTree = "<group>"; };
 		F83235EF16BDA864007A1B4E /* GARequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GARequestTest.m; sourceTree = "<group>"; };
+		F838D01016C9717500CF5ED7 /* GAEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAEngine.h; sourceTree = "<group>"; };
+		F838D01116C9717500CF5ED7 /* GAEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAEngine.m; sourceTree = "<group>"; };
+		F838D01416C971C600CF5ED7 /* GASettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GASettings.h; sourceTree = "<group>"; };
+		F838D01516C971C600CF5ED7 /* GASettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GASettings.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +103,7 @@
 			files = (
 				F83235CE16BD40FB007A1B4E /* SystemConfiguration.framework in Frameworks */,
 				F83234D116BD1052007A1B4E /* Foundation.framework in Frameworks */,
+				F838D01816C973E800CF5ED7 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,10 +158,12 @@
 				F83234D316BD1052007A1B4E /* Supporting Files */,
 				F83234D516BD1052007A1B4E /* GameAnalytics.h */,
 				F83234D716BD1052007A1B4E /* GameAnalytics.m */,
+				F838D01016C9717500CF5ED7 /* GAEngine.h */,
+				F838D01116C9717500CF5ED7 /* GAEngine.m */,
 				F832350616BD190D007A1B4E /* GARequest.h */,
 				F832350716BD190D007A1B4E /* GARequest.m */,
-				F832350A16BD1979007A1B4E /* GAAPIHelper.h */,
-				F832350B16BD1979007A1B4E /* GAAPIHelper.m */,
+				F838D01416C971C600CF5ED7 /* GASettings.h */,
+				F838D01516C971C600CF5ED7 /* GASettings.m */,
 			);
 			path = GameAnalytics;
 			sourceTree = "<group>";
@@ -357,11 +365,12 @@
 			files = (
 				F83234D816BD1052007A1B4E /* GameAnalytics.m in Sources */,
 				F832350816BD190D007A1B4E /* GARequest.m in Sources */,
-				F832350C16BD1979007A1B4E /* GAAPIHelper.m in Sources */,
 				F83235B516BD3B91007A1B4E /* OpenUDID.m in Sources */,
 				F83235BB16BD3B91007A1B4E /* Reachability.m in Sources */,
 				F83235C716BD3D0A007A1B4E /* NSData+md5.m in Sources */,
 				F83235C916BD3D0A007A1B4E /* NSString+md5.m in Sources */,
+				F838D01216C9717500CF5ED7 /* GAEngine.m in Sources */,
+				F838D01616C971C600CF5ED7 /* GASettings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,11 +380,12 @@
 			files = (
 				F83234EF16BD1053007A1B4E /* GameAnalyticsTests.m in Sources */,
 				F832350916BD190D007A1B4E /* GARequest.m in Sources */,
-				F832350D16BD1979007A1B4E /* GAAPIHelper.m in Sources */,
 				F83235C816BD3D0A007A1B4E /* NSData+md5.m in Sources */,
 				F83235CA16BD3D0A007A1B4E /* NSString+md5.m in Sources */,
 				F83235CB16BD3F6C007A1B4E /* OpenUDID.m in Sources */,
 				F83235F016BDA864007A1B4E /* GARequestTest.m in Sources */,
+				F838D01316C9717500CF5ED7 /* GAEngine.m in Sources */,
+				F838D01716C971C600CF5ED7 /* GASettings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +470,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/GameAnalytics.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GameAnalytics/GameAnalytics-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
@@ -472,6 +486,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/GameAnalytics.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GameAnalytics/GameAnalytics-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
