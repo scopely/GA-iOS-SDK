@@ -19,7 +19,7 @@ typedef enum : NSInteger
     GACategoryUser//player profiles
 }GACategory;
 
-@interface GAEngine : NSObject
+@interface GAEngine : NSObject <GARequestDelegate>
 
 - (id)initWithHGameKey:(NSString *)gameKey
              secretKey:(NSString *)secretKey

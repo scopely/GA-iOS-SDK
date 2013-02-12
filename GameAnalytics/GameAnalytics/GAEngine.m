@@ -113,6 +113,9 @@ static NSMutableSet *offlineArchive;
 
 -(void) getCachedArchive
 {
+    if([GASettings isDebugLogEnabled])
+        NSLog(@"load Offline Request Archive");
+
     NSString *filePath = [[self cacheDirectoryName] stringByAppendingPathComponent:@"Offline.archive"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     if(data)
@@ -158,6 +161,9 @@ static NSMutableSet *offlineArchive;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveCache)
                                                  name:UIApplicationWillTerminateNotification
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getCachedArchive)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object:nil];
 }
 
 -(void) emptyCache {
@@ -200,7 +206,6 @@ static NSMutableSet *offlineArchive;
     self.reachability = [Reachability reachabilityWithHostname:@"api.gameanalytics.com"];
     [self.reachability startNotifier];
     [self useCache];
-    [self getCachedArchive];
 }
 
 #pragma mark - Public Instance Methods
@@ -448,9 +453,9 @@ static NSMutableSet *offlineArchive;
 
 #pragma mark GARequestDelegate
 
-- (void)removeFromInProgressQueue:(GARequest *)request
+- (void) removeFromInProgressQueue:(GARequest *)request
 {
-    
+    [GAEngine removeRequestFromInProgressMutableSet:request];
 }
 
 @end

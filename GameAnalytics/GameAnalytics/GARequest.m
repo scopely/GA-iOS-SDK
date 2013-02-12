@@ -85,9 +85,11 @@
         //[self addSelfToActiveRequestsSet];
     }
     else if (state == GARequestStatusCompleted || state == GARequestStatusFailed  || state == GARequestStatusCancelled)
-    {
-        //[self removeSelfFromActiveRequestsSet];
-        //TODO: [GARequest removeRequestFromInProgressMutableSet:self];
+    {   
+        if(self.delegate && [self.delegate respondsToSelector:@selector(removeFromInProgressQueue:)])
+        {
+            [self.delegate removeFromInProgressQueue:self];
+        }
         
         urlConnection = nil;
     }

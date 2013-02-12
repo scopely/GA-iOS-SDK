@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GARequestDelegate.h"
 
 typedef enum
 {
@@ -32,6 +33,8 @@ typedef enum : NSInteger
 typedef signed short GARequestStatus;
 
 @interface GARequest : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate, NSCoding, NSCopying>
+
+@property (weak, nonatomic) id<GARequestDelegate> delegate;
 
 -(id)initWithURLRequest:(NSURLRequest *)urlRequest;
 
