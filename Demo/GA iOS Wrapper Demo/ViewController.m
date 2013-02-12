@@ -23,7 +23,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self.toggleLogButton setTitle:@"Enable Debug Log" forState:UIControlStateNormal];
+    [self.toggleLogButton setTitle:@"Disable Debug Log" forState:UIControlStateNormal];
     //[GameAnalytics setDebugLogEnabled:YES];
 }
 
