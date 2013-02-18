@@ -1,7 +1,7 @@
-#[Game Analytics REST API](http://support.gameanalytics.com/forums/21598176-The-REST-API) wrapper for iOS
+#[GameAnalytics REST API](http://support.gameanalytics.com/forums/21598176-The-REST-API) wrapper for iOS
 
 
-The GameAnalytics API iOS Wrapper is designed to send game event data to the GameAnalytics service for visualization. By collecting data from players playing your game you will be able to identify bugs and balance issues, track purchases, and determine how the players really play your game.
+The GameAnalytics API iOS Wrapper is designed to send game event data to the GameAnalytics service for processing and visualization. By collecting data from players playing your game you will be able to identify bugs and balance issues, track purchases, and determine how the players really play your game.
 
 The code for the GameAnalytics API iOS Wrapper is open source - feel free to create your own fork, or use the code to develop your own wrapper.
 
