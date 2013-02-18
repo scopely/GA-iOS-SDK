@@ -1,17 +1,17 @@
 #[Game Analytics REST API](http://support.gameanalytics.com/forums/21598176-The-REST-API) wrapper for iOS
 
 
-The Game Analytics API iOS Wrapper is designed to send game event data to the Game Analytics service for visualization. By collecting data from players playing your game you will be able to identify bugs and balance issues, track purchases, and determine how the players really play your game.
+The GameAnalytics API iOS Wrapper is designed to send game event data to the GameAnalytics service for visualization. By collecting data from players playing your game you will be able to identify bugs and balance issues, track purchases, and determine how the players really play your game.
 
-The code for the Game Analytics API iOS Wrapper is open source - feel free to create your own fork, or use the code to develop your own wrapper.
+The code for the GameAnalytics API iOS Wrapper is open source - feel free to create your own fork, or use the code to develop your own wrapper.
 
-## Game Analytics Full Documentation
+## GameAnalytics Full Documentation
 
 You can find the [full documentation](http://support.gameanalytics.com/forums) on the Game Analytics website for wrappers, RESTful API, as well as information about how to collect useful data for your game.
 
-## Game Analytics Website
+## GameAnalytics Website
 
-The Game Analytics website can be found [here](http://www.gameanalytics.com/).
+The GameAnalytics website can be found [here](http://www.gameanalytics.com/).
 To start using the iOS API Wrapper you will have to create an account on the website and add your game.
 
 
@@ -23,7 +23,7 @@ To start using the iOS API Wrapper you will have to create an account on the web
 
 ##Installation
 
-1. Download latest version of Games Analytics iOS Wrapper binaries.
+1. Download latest version of GamesAnalytics iOS Wrapper binaries.
 	The archive should contain these files:
 
 	*`GameAnalytics.h`: The required header file containing methods for Games Analytics.*
@@ -81,7 +81,7 @@ In your application delegate's `application:didFinishLaunchingWithOptions:` meth
 
     [GameAnalytics setGameKey:@"__CHANGE_ME__" secretKey:@"__CHANGE_ME__" build:@"__CHANGE_ME__"];
 
-Go to the [Game Analytic](http://www.gameanalytics.com) to register your Game keys and Secret keys.
+Go to [GameAnalytic](http://www.gameanalytics.com) to register your game and get the game- and secret-key.
 
 There are four different types of events to log: user, design, business, quality.
 Each of these categories have different purposes, accept different values, and have certain required fields. 
@@ -133,7 +133,7 @@ Set custom user ID, if you don't want to use default OpenUDID.
 
 ####Enable debug logs to console
 
-Enabling this option will cause the Game Analytics wrapper to print additional debug information, such as the status of each submit to the server.
+Enabling this option will cause the GameAnalytics wrapper to print additional debug information, such as the status of each submit to the server.
 The default setting for this method is NO.
 
 	+ (void)setDebugLogEnabled:(BOOL)value;
