@@ -1,4 +1,4 @@
-#[Game Analytics REST API](http://www.gameanalytics.com/docs/restful.html) wrapper for iOS
+#[Game Analytics REST API](http://support.gameanalytics.com/forums/21598176-The-REST-API) wrapper for iOS
 
 
 The Game Analytics API iOS Wrapper is designed to send game event data to the Game Analytics service for visualization. By collecting data from players playing your game you will be able to identify bugs and balance issues, track purchases, and determine how the players really play your game.
@@ -7,7 +7,7 @@ The code for the Game Analytics API iOS Wrapper is open source - feel free to cr
 
 ## Game Analytics Full Documentation
 
-You can find the [full documentation](http://www.gameanalytics.com/docs) on the Game Analytics website for wrappers, RESTful API, as well as information about how to collect useful data for your game.
+You can find the [full documentation](http://support.gameanalytics.com/forums) on the Game Analytics website for wrappers, RESTful API, as well as information about how to collect useful data for your game.
 
 ## Game Analytics Website
 
@@ -85,7 +85,7 @@ Go to the [Game Analytic](http://www.gameanalytics.com) to register your Game ke
 
 There are four different types of events to log: user, design, business, quality.
 Each of these categories have different purposes, accept different values, and have certain required fields. 
-Check the [full documentation](http://www.gameanalytics.com/docs) for more details. 
+Check the [full documentation](http://support.gameanalytics.com/forums) for more details. 
 Add these method calls to your code to register every occurrence of the events.
 
 ###User data
