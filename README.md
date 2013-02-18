@@ -1,4 +1,4 @@
-#[Game Analytics REST API](https://beta.gameanalytics.com/docs/restful.html) wrapper for iOS
+#[Game Analytics REST API](http://www.gameanalytics.com/docs/restful.html) wrapper for iOS
 
 
 The Game Analytics API iOS Wrapper is designed to send game event data to the Game Analytics service for visualization. By collecting data from players playing your game you will be able to identify bugs and balance issues, track purchases, and determine how the players really play your game.
@@ -7,11 +7,11 @@ The code for the Game Analytics API iOS Wrapper is open source - feel free to cr
 
 ## Game Analytics Full Documentation
 
-You can find the [full documentation](http://beta.gameanalytics.com/docs) on the Game Analytics website for wrappers, RESTful API, as well as information about how to collect useful data for your game.
+You can find the [full documentation](http://www.gameanalytics.com/docs) on the Game Analytics website for wrappers, RESTful API, as well as information about how to collect useful data for your game.
 
 ## Game Analytics Website
 
-The Game Analytics website can be found [here](http://beta.gameanalytics.com/).
+The Game Analytics website can be found [here](http://www.gameanalytics.com/).
 To start using the iOS API Wrapper you will have to create an account on the website and add your game.
 
 
@@ -35,40 +35,40 @@ To start using the iOS API Wrapper you will have to create an account on the web
 
 2. Click on your project's Frameworks > Add Files to "Your project name".
 
-	![Add Files to](https://github.com/saleksandras/GA-iOS-Wrapper/raw/master/Screenshots/addfiles.png)
+	![Add Files to](https://github.com/GameAnalytics/GA-iOS-Wrapper/raw/master/Screenshots/addfiles.png)
 	
 	Find and select the folder that contains the file named `libGameAnalytics.a`.
 	The checkbox "Copy items into destination folder (if needed)" must be checked.
 	Choose "Create groups for any added folders" and click Add.  
 	
-	![Select folder](https://github.com/saleksandras/GA-iOS-Wrapper/raw/master/Screenshots/selectfolder.png)
+	![Select folder](https://github.com/GameAnalytics/GA-iOS-Wrapper/raw/master/Screenshots/selectfolder.png)
 	
 	The files `GameAnalytics.h` and `libGameAnalytics.a` should now be in your project.
 	
-	![Files added](https://github.com/saleksandras/GA-iOS-Wrapper/raw/master/Screenshots/filesadded.png)
+	![Files added](https://github.com/GameAnalytics/GA-iOS-Wrapper/raw/master/Screenshots/filesadded.png)
 
 3. Select your project, target and choose "Build Phases" tab.
 	Expand the "Link Binary With Libraries" group and check if it contains `libGameAnalytic.a` library.
 	
-	![Link Binary With Libraries](https://github.com/saleksandras/GA-iOS-Wrapper/raw/master/Screenshots/linkbinary.png)
+	![Link Binary With Libraries](https://github.com/GameAnalytics/GA-iOS-Wrapper/raw/master/Screenshots/linkbinary.png)
 	
 	In case it is not present there, drag and drop the library from your Project Navigator to the "Link Binary With Libraries" group.
 
 4. In the "Link Binary With Libraries" group click the "+" to add new framework.
 	Find the `SystemConfiguration.framework` in the list and click Add.
 	
-	![Add framework](https://github.com/saleksandras/GA-iOS-Wrapper/raw/master/Screenshots/addframework.png)
+	![Add framework](https://github.com/GameAnalytics/GA-iOS-Wrapper/raw/master/Screenshots/addframework.png)
 	
 	`SystemConfiguration.framework` now should be listed under the "Link Binary With Libraries" group.
 	
-	![SystemConfiguration.framework](https://github.com/saleksandras/GA-iOS-Wrapper/raw/master/Screenshots/systemconfig.png)
+	![SystemConfiguration.framework](https://github.com/GameAnalytics/GA-iOS-Wrapper/raw/master/Screenshots/systemconfig.png)
 	
 	This is required for Reachability to manage network operations efficiently.
 
 5. Select your project, target and choose "Build Settings" tab.
 	Under "Linking" group click on "Other Linker Flags" and add `-ObjC` flag. 
 	
-	![ObjC flag](https://github.com/saleksandras/GA-iOS-Wrapper/raw/master/Screenshots/objc.png)
+	![ObjC flag](https://github.com/GameAnalytics/GA-iOS-Wrapper/raw/master/Screenshots/objc.png)
 
 
 ##Usage
@@ -81,11 +81,11 @@ In your application delegate's `application:didFinishLaunchingWithOptions:` meth
 
     [GameAnalytics setGameKey:@"__CHANGE_ME__" secretKey:@"__CHANGE_ME__" build:@"__CHANGE_ME__"];
 
-Go to the [Game Analytic](https://beta.gameanalytics.com) to register your Game keys and Secret keys.
+Go to the [Game Analytic](http://www.gameanalytics.com) to register your Game keys and Secret keys.
 
 There are four different types of events to log: user, design, business, quality.
 Each of these categories have different purposes, accept different values, and have certain required fields. 
-Check the [full documentation](http://beta.gameanalytics.com/docs) for more details. 
+Check the [full documentation](http://www.gameanalytics.com/docs) for more details. 
 Add these method calls to your code to register every occurrence of the events.
 
 ###User data
