@@ -6,10 +6,10 @@
 //  Copyright (c) iOSDeveloperTips.com. All rights reserved.
 //
 
-#import "NSString+md5.h"
+#import "NSString+GAMD5.h"
 #import <CommonCrypto/CommonDigest.h>
 
-@implementation NSString (md5)
+@implementation NSString (GAMD5)
 
 - (NSString *) md5
 {

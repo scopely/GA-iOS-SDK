@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSData (md5)
+@interface NSData (GAMD5)
 
 - (NSString*)MD5;
 
