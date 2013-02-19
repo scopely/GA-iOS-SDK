@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "GARequest.h"
-#import "Reachability.h"
-#import "OpenUDID.h"
+#import "GAReachability.h"
+#import "GAOpenUDID.h"
 
 typedef enum : NSInteger
 {
