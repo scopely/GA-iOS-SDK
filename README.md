@@ -93,7 +93,7 @@ Add these method calls to your code to register every occurrence of the events.
 Used to tracking demographic information about individual users (players). 
 Log User data example:
 
-    [GameAnalytics logUserDataWithParams:@{@"gender" : @"M", @"birth_year" : @1981, @"country" : @"LT", @"state" : @"VNO", @"friend_count" : @10}];
+    [GameAnalytics logUserDataWithParams:@{@"gender" : @"M", @"birth_year" : @1981, @"friend_count" : @10}];
 
 ###Game design data
 
