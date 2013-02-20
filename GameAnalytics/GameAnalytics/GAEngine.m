@@ -8,14 +8,14 @@
 
 #import "GAEngine.h"
 #import "GASettings.h"
-#import "NSString+md5.h"
+#import "NSString+GAMD5.h"
 
 #import <UIKit/UIApplication.h>
 
 @interface GAEngine ()
 
 
-@property (strong, nonatomic) Reachability *reachability;
+@property (strong, nonatomic) GAReachability *reachability;
 
 - (void)commonInit;
 -(NSString *)stringForCategory:(GACategory)category;
@@ -188,7 +188,7 @@ static NSMutableSet *offlineArchive;
         {
             _userID = userID;
         } else {
-            _userID = [OpenUDID value];
+            _userID = [GAOpenUDID value];
         }
         _sessionID = [self getGUID];
         [self commonInit];
@@ -200,10 +200,10 @@ static NSMutableSet *offlineArchive;
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reachabilityChanged:)
-                                                 name:kReachabilityChangedNotification
+                                                 name:kGAReachabilityChangedNotification
                                                object:nil];
     
-    self.reachability = [Reachability reachabilityWithHostname:@"api.gameanalytics.com"];
+    self.reachability = [GAReachability reachabilityWithHostname:@"api.gameanalytics.com"];
     [self.reachability startNotifier];
     [self useCache];
 }
@@ -343,7 +343,13 @@ static NSMutableSet *offlineArchive;
 
 -(NSDictionary *) mutableDictionaryFromRequiredFieldsWithEvendID:(NSString *)eventID params:(NSDictionary *)params
 {
-    NSMutableDictionary *mutableParams = [params mutableCopy];
+    NSMutableDictionary *mutableParams;
+    if(params)
+    {
+        mutableParams= [params mutableCopy];
+    } else {
+        mutableParams = [[NSMutableDictionary alloc] init];
+    }
     
     if(eventID)
     {
@@ -439,7 +445,7 @@ static NSMutableSet *offlineArchive;
 
 -(void) dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kGAReachabilityChangedNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];

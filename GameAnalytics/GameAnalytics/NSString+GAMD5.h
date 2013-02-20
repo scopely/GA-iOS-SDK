@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (md5)
+@interface NSString (GAMD5)
 
 - (NSString *) md5;
 

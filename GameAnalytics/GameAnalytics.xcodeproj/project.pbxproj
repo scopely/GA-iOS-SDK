@@ -17,13 +17,10 @@
 		F83234EF16BD1053007A1B4E /* GameAnalyticsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F83234EE16BD1053007A1B4E /* GameAnalyticsTests.m */; };
 		F832350816BD190D007A1B4E /* GARequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F832350716BD190D007A1B4E /* GARequest.m */; };
 		F832350916BD190D007A1B4E /* GARequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F832350716BD190D007A1B4E /* GARequest.m */; };
-		F83235B516BD3B91007A1B4E /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = F832358D16BD3B90007A1B4E /* OpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		F83235BB16BD3B91007A1B4E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F83235B216BD3B91007A1B4E /* Reachability.m */; };
-		F83235C716BD3D0A007A1B4E /* NSData+md5.m in Sources */ = {isa = PBXBuildFile; fileRef = F83235C416BD3D0A007A1B4E /* NSData+md5.m */; };
-		F83235C816BD3D0A007A1B4E /* NSData+md5.m in Sources */ = {isa = PBXBuildFile; fileRef = F83235C416BD3D0A007A1B4E /* NSData+md5.m */; };
-		F83235C916BD3D0A007A1B4E /* NSString+md5.m in Sources */ = {isa = PBXBuildFile; fileRef = F83235C616BD3D0A007A1B4E /* NSString+md5.m */; };
-		F83235CA16BD3D0A007A1B4E /* NSString+md5.m in Sources */ = {isa = PBXBuildFile; fileRef = F83235C616BD3D0A007A1B4E /* NSString+md5.m */; };
-		F83235CB16BD3F6C007A1B4E /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = F832358D16BD3B90007A1B4E /* OpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F83235C716BD3D0A007A1B4E /* NSData+GAMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = F83235C416BD3D0A007A1B4E /* NSData+GAMD5.m */; };
+		F83235C816BD3D0A007A1B4E /* NSData+GAMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = F83235C416BD3D0A007A1B4E /* NSData+GAMD5.m */; };
+		F83235C916BD3D0A007A1B4E /* NSString+GAMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = F83235C616BD3D0A007A1B4E /* NSString+GAMD5.m */; };
+		F83235CA16BD3D0A007A1B4E /* NSString+GAMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = F83235C616BD3D0A007A1B4E /* NSString+GAMD5.m */; };
 		F83235CE16BD40FB007A1B4E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83235CD16BD40FA007A1B4E /* SystemConfiguration.framework */; };
 		F83235ED16BDA5E3007A1B4E /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F83235E516BDA5E3007A1B4E /* libOCMock.a */; };
 		F83235F016BDA864007A1B4E /* GARequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F83235EF16BDA864007A1B4E /* GARequestTest.m */; };
@@ -32,6 +29,8 @@
 		F838D01616C971C600CF5ED7 /* GASettings.m in Sources */ = {isa = PBXBuildFile; fileRef = F838D01516C971C600CF5ED7 /* GASettings.m */; };
 		F838D01716C971C600CF5ED7 /* GASettings.m in Sources */ = {isa = PBXBuildFile; fileRef = F838D01516C971C600CF5ED7 /* GASettings.m */; };
 		F838D01816C973E800CF5ED7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83234E116BD1053007A1B4E /* UIKit.framework */; };
+		F85A413C16D3E2FE0076005A /* GAOpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = F85A413B16D3E2FE0076005A /* GAOpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F85A413F16D3E30F0076005A /* GAReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F85A413E16D3E30F0076005A /* GAReachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,14 +71,10 @@
 		F83234EE16BD1053007A1B4E /* GameAnalyticsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameAnalyticsTests.m; sourceTree = "<group>"; };
 		F832350616BD190D007A1B4E /* GARequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GARequest.h; sourceTree = "<group>"; };
 		F832350716BD190D007A1B4E /* GARequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GARequest.m; sourceTree = "<group>"; };
-		F832358C16BD3B90007A1B4E /* OpenUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenUDID.h; sourceTree = "<group>"; };
-		F832358D16BD3B90007A1B4E /* OpenUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenUDID.m; sourceTree = "<group>"; };
-		F83235B116BD3B91007A1B4E /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		F83235B216BD3B91007A1B4E /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		F83235C316BD3D0A007A1B4E /* NSData+md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+md5.h"; sourceTree = "<group>"; };
-		F83235C416BD3D0A007A1B4E /* NSData+md5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+md5.m"; sourceTree = "<group>"; };
-		F83235C516BD3D0A007A1B4E /* NSString+md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+md5.h"; sourceTree = "<group>"; };
-		F83235C616BD3D0A007A1B4E /* NSString+md5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+md5.m"; sourceTree = "<group>"; };
+		F83235C316BD3D0A007A1B4E /* NSData+GAMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+GAMD5.h"; sourceTree = "<group>"; };
+		F83235C416BD3D0A007A1B4E /* NSData+GAMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+GAMD5.m"; sourceTree = "<group>"; };
+		F83235C516BD3D0A007A1B4E /* NSString+GAMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GAMD5.h"; sourceTree = "<group>"; };
+		F83235C616BD3D0A007A1B4E /* NSString+GAMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GAMD5.m"; sourceTree = "<group>"; };
 		F83235CD16BD40FA007A1B4E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F83235E516BDA5E3007A1B4E /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		F83235E716BDA5E3007A1B4E /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
@@ -94,6 +89,10 @@
 		F838D01116C9717500CF5ED7 /* GAEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAEngine.m; sourceTree = "<group>"; };
 		F838D01416C971C600CF5ED7 /* GASettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GASettings.h; sourceTree = "<group>"; };
 		F838D01516C971C600CF5ED7 /* GASettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GASettings.m; sourceTree = "<group>"; };
+		F85A413A16D3E2FE0076005A /* GAOpenUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAOpenUDID.h; sourceTree = "<group>"; };
+		F85A413B16D3E2FE0076005A /* GAOpenUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAOpenUDID.m; sourceTree = "<group>"; };
+		F85A413D16D3E30F0076005A /* GAReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAReachability.h; sourceTree = "<group>"; };
+		F85A413E16D3E30F0076005A /* GAReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAReachability.m; sourceTree = "<group>"; };
 		F8AC14B416CA69CF00FF9E22 /* GARequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GARequestDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -204,38 +203,20 @@
 		F832358916BD3A40007A1B4E /* external */ = {
 			isa = PBXGroup;
 			children = (
+				F85A413916D3E28A0076005A /* Reachability */,
+				F85A413816D3E2810076005A /* OpenUDID */,
 				F83235C216BD3BC6007A1B4E /* MD5 */,
-				F832358B16BD3B90007A1B4E /* OpenUDID */,
-				F832358F16BD3B90007A1B4E /* Reachability */,
 			);
 			name = external;
-			sourceTree = "<group>";
-		};
-		F832358B16BD3B90007A1B4E /* OpenUDID */ = {
-			isa = PBXGroup;
-			children = (
-				F832358C16BD3B90007A1B4E /* OpenUDID.h */,
-				F832358D16BD3B90007A1B4E /* OpenUDID.m */,
-			);
-			path = OpenUDID;
-			sourceTree = "<group>";
-		};
-		F832358F16BD3B90007A1B4E /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				F83235B116BD3B91007A1B4E /* Reachability.h */,
-				F83235B216BD3B91007A1B4E /* Reachability.m */,
-			);
-			path = Reachability;
 			sourceTree = "<group>";
 		};
 		F83235C216BD3BC6007A1B4E /* MD5 */ = {
 			isa = PBXGroup;
 			children = (
-				F83235C316BD3D0A007A1B4E /* NSData+md5.h */,
-				F83235C416BD3D0A007A1B4E /* NSData+md5.m */,
-				F83235C516BD3D0A007A1B4E /* NSString+md5.h */,
-				F83235C616BD3D0A007A1B4E /* NSString+md5.m */,
+				F83235C316BD3D0A007A1B4E /* NSData+GAMD5.h */,
+				F83235C416BD3D0A007A1B4E /* NSData+GAMD5.m */,
+				F83235C516BD3D0A007A1B4E /* NSString+GAMD5.h */,
+				F83235C616BD3D0A007A1B4E /* NSString+GAMD5.m */,
 			);
 			name = MD5;
 			sourceTree = "<group>";
@@ -251,6 +232,24 @@
 				F83235EC16BDA5E3007A1B4E /* OCMockRecorder.h */,
 			);
 			path = OCMock;
+			sourceTree = "<group>";
+		};
+		F85A413816D3E2810076005A /* OpenUDID */ = {
+			isa = PBXGroup;
+			children = (
+				F85A413A16D3E2FE0076005A /* GAOpenUDID.h */,
+				F85A413B16D3E2FE0076005A /* GAOpenUDID.m */,
+			);
+			name = OpenUDID;
+			sourceTree = "<group>";
+		};
+		F85A413916D3E28A0076005A /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				F85A413D16D3E30F0076005A /* GAReachability.h */,
+				F85A413E16D3E30F0076005A /* GAReachability.m */,
+			);
+			name = Reachability;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,12 +366,12 @@
 			files = (
 				F83234D816BD1052007A1B4E /* GameAnalytics.m in Sources */,
 				F832350816BD190D007A1B4E /* GARequest.m in Sources */,
-				F83235B516BD3B91007A1B4E /* OpenUDID.m in Sources */,
-				F83235BB16BD3B91007A1B4E /* Reachability.m in Sources */,
-				F83235C716BD3D0A007A1B4E /* NSData+md5.m in Sources */,
-				F83235C916BD3D0A007A1B4E /* NSString+md5.m in Sources */,
+				F83235C716BD3D0A007A1B4E /* NSData+GAMD5.m in Sources */,
+				F83235C916BD3D0A007A1B4E /* NSString+GAMD5.m in Sources */,
 				F838D01216C9717500CF5ED7 /* GAEngine.m in Sources */,
 				F838D01616C971C600CF5ED7 /* GASettings.m in Sources */,
+				F85A413C16D3E2FE0076005A /* GAOpenUDID.m in Sources */,
+				F85A413F16D3E30F0076005A /* GAReachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,9 +381,8 @@
 			files = (
 				F83234EF16BD1053007A1B4E /* GameAnalyticsTests.m in Sources */,
 				F832350916BD190D007A1B4E /* GARequest.m in Sources */,
-				F83235C816BD3D0A007A1B4E /* NSData+md5.m in Sources */,
-				F83235CA16BD3D0A007A1B4E /* NSString+md5.m in Sources */,
-				F83235CB16BD3F6C007A1B4E /* OpenUDID.m in Sources */,
+				F83235C816BD3D0A007A1B4E /* NSData+GAMD5.m in Sources */,
+				F83235CA16BD3D0A007A1B4E /* NSString+GAMD5.m in Sources */,
 				F83235F016BDA864007A1B4E /* GARequestTest.m in Sources */,
 				F838D01316C9717500CF5ED7 /* GAEngine.m in Sources */,
 				F838D01716C971C600CF5ED7 /* GASettings.m in Sources */,
