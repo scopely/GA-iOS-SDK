@@ -147,13 +147,6 @@ The default setting for this method is NO.
 
 	+ (void)setArchiveDataEnabled:(BOOL)value;
 
-
-##Todo
-
-- Exception Handling demo
-- Finish tests
-- Feedback GUI
-
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
