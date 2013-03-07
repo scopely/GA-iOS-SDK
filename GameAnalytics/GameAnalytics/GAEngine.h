@@ -47,6 +47,8 @@ typedef enum : NSInteger
 
 -(void)updateSessionID;
 
+-(BOOL)sendBatch;
+
 
 /*!
  *  @abstract Checks current reachable status

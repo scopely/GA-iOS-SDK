@@ -150,4 +150,29 @@
  */
 + (void)setArchiveDataLimit:(NSInteger)limit;
 
+/*!
+ *  @abstract Enable batch requests
+ *
+ *  @discussion
+ *  Batching allows you to pass several log requests in a single HTTP request.
+ *  Call sendBatch to send data.
+ *
+ *  @note The default setting for this method is NO.
+ *
+ *  @param value @c YES to enable batch requests, @c NO to send individual log requests.
+ *
+ */
++ (void)setBatchRequestsEnabled:(BOOL)value;
+
+/*!
+ *  @abstract Send new batch requests.
+ *
+ *  @discussion
+ *  Use this call when BatchRequests is enabled only.
+ *  The method returns TRUE if API server is reachable (user is online)
+ *  or FALSE if user is offline and data wasn't sent.
+ *
+ */
++ (BOOL)sendBatch;
+
 @end

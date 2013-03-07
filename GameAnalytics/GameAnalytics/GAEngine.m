@@ -78,13 +78,32 @@ static NSMutableSet *offlineArchive;
 
 -(void) checkAndRestoreFrozenOperations {
     if([GASettings isDebugLogEnabled])
-        NSLog(@"checkAndRestoreFrozenOperations: %d", [offlineArchive count]);
+        NSLog(@"checkAndRestoreFrozenOperations with request count: %d", [offlineArchive count]);
     
     for(GARequest *request in [offlineArchive allObjects])
     {
         [request start];
         [GAEngine addRequestToInProgressMutableSet:request];
         [self removeRequestFromOfflineArchiveMutableSet:request];
+    }
+}
+
+-(BOOL)sendBatch
+{
+    if([GASettings isBatchRequestsEnabled] && [self isReachable])
+    {
+        if([GASettings isDebugLogEnabled])
+            NSLog(@"sendBatch with request count: %d", [offlineArchive count]);
+        
+        for(GARequest *request in [offlineArchive allObjects])
+        {
+            [request start];
+            [GAEngine addRequestToInProgressMutableSet:request];
+            [self removeRequestFromOfflineArchiveMutableSet:request];
+        }
+        return YES;
+    } else {
+        return NO;
     }
 }
 
@@ -105,7 +124,7 @@ static NSMutableSet *offlineArchive;
 
 -(void) saveCache {
     if([GASettings isDebugLogEnabled])
-        NSLog(@"save Offline Request Archive");
+        NSLog(@"save Offline/Batch Request Archive");
     
     [self saveCacheData:[NSKeyedArchiver archivedDataWithRootObject:offlineArchive]];
     [offlineArchive removeAllObjects];
@@ -114,7 +133,7 @@ static NSMutableSet *offlineArchive;
 -(void) getCachedArchive
 {
     if([GASettings isDebugLogEnabled])
-        NSLog(@"load Offline Request Archive");
+        NSLog(@"load Offline/Batch Request Archive");
 
     NSString *filePath = [[self cacheDirectoryName] stringByAppendingPathComponent:@"Offline.archive"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];
@@ -294,7 +313,7 @@ static NSMutableSet *offlineArchive;
 {
     [offlineArchive addObject:request];
     if([GASettings isDebugLogEnabled])
-        NSLog(@"request was added to offline archive set");
+        NSLog(@"request was added to offline/Batch archive set");
 }
 
 -(void)removeRequestFromOfflineArchiveMutableSet:(GARequest *)request
@@ -309,12 +328,17 @@ static NSMutableSet *offlineArchive;
 
 -(void) enqueueOperation:(GARequest*) request
 {
-    if([self isReachable])
+    if([GASettings isBatchRequestsEnabled])
     {
-        [request start];
-        [GAEngine addRequestToInProgressMutableSet:request];
-    } else if([GASettings isArchiveDataEnabled]) {
         [self addRequestToOfflineArchiveMutableSet:request];
+    } else {
+        if([self isReachable])
+        {
+            [request start];
+            [GAEngine addRequestToInProgressMutableSet:request];
+        } else if([GASettings isArchiveDataEnabled]) {
+            [self addRequestToOfflineArchiveMutableSet:request];
+        }
     }
 }
 
@@ -419,13 +443,20 @@ static NSMutableSet *offlineArchive;
     {
         if([GASettings isDebugLogEnabled])
             NSLog(@"reachabilityChanged: Server api.gameanalytics.com is reachable via Wifi");
-        [self checkAndRestoreFrozenOperations];
+        if(![GASettings isBatchRequestsEnabled])//don't send single requests if Batch Requests is enabled
+        {
+            [self checkAndRestoreFrozenOperations];
+        }
     }
     else if([self.reachability currentReachabilityStatus] == ReachableViaWWAN)
     {
         if([GASettings isDebugLogEnabled])
             NSLog(@"reachabilityChanged: Server api.gameanalytics.com is reachable only via cellular data");
-        [self checkAndRestoreFrozenOperations];
+
+        if(![GASettings isBatchRequestsEnabled])//don't send single requests if Batch Requests is enabled
+        {
+            [self checkAndRestoreFrozenOperations];
+        }
     }
     else if([self.reachability currentReachabilityStatus] == NotReachable)
     {

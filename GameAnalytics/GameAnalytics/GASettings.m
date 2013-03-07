@@ -16,6 +16,7 @@
 
 static BOOL _isDebugLogEnabled = NO;
 static BOOL _isArchiveDataEnabled = NO;
+static BOOL _isBatchRequestsEnabled = NO;
 static NSInteger _archiveDataLimit = NO;
 static NSString *_customUserID = nil;
 
@@ -73,6 +74,16 @@ static NSString *_customUserID = nil;
 + (void)setArchiveDataLimit:(NSInteger)limit
 {
     _archiveDataLimit = limit;
+}
+
++ (BOOL)isBatchRequestsEnabled
+{
+    return _isBatchRequestsEnabled;
+}
+
++ (void)setBatchRequestsEnabled:(BOOL)value
+{
+    _isBatchRequestsEnabled = value;
 }
 
 @end

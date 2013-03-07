@@ -22,4 +22,7 @@
 + (NSInteger)getArchiveDataLimit;
 + (void)setArchiveDataLimit:(NSInteger)limit;
 
++ (BOOL)isBatchRequestsEnabled;
++ (void)setBatchRequestsEnabled:(BOOL)value;
+
 @end
