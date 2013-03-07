@@ -69,7 +69,11 @@ To start using the iOS API Wrapper you will have to create an account on the web
 	Under "Linking" group click on "Other Linker Flags" and add `-ObjC` flag. 
 	
 	![ObjC flag](https://github.com/GameAnalytics/GA-iOS-Wrapper/raw/master/Screenshots/objc.png)
+	
+6. In your project's build settings, find "Header Search Paths" and add $(SRCROOT) and check the box indicating a recurisve search.
+	If the path to your project contains spaces, you must put $(SRCROOT) (as other custom search paths) in quotes.
 
+	![SRCROOT](https://github.com/GameAnalytics/GA-iOS-Wrapper/raw/master/Screenshots/srcroot.png)
 
 ##Usage
 
@@ -146,7 +150,15 @@ The next time an internet connection is available any archived data will be sent
 The default setting for this method is NO.
 
 	+ (void)setArchiveDataEnabled:(BOOL)value;
+	
+####Batch requests
 
+Batching allows you to pass several log requests in a single HTTP request.
+Call `[GameAnalytics sendBatch];` to send data.
+The default setting for this method is NO.
+
+	+ (void)setBatchRequestsEnabled:(BOOL)value;
+	
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
