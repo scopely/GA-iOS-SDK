@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "GameAnalytics.h"
 
 @interface ViewController ()
 
@@ -23,8 +24,14 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self.toggleLogButton setTitle:@"Disable Debug Log" forState:UIControlStateNormal];
-    //[GameAnalytics setDebugLogEnabled:YES];
+    [GameAnalytics setDebugLogEnabled:YES];
+    [GameAnalytics setBatchRequestsEnabled:NO];
 }
 
 - (void)didReceiveMemoryWarning

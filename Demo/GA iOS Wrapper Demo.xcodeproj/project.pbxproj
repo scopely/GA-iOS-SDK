@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F82B137016CA770200031F49 /* libGameAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F82B136F16CA770200031F49 /* libGameAnalytics.a */; };
+		F819B04316E87E8200ED3557 /* libGameAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F819B04216E87E8200ED3557 /* libGameAnalytics.a */; };
+		F81BA6B016E7EB7300D2BE15 /* BatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F81BA6AF16E7EB7300D2BE15 /* BatchViewController.m */; };
 		F82F796116BEF10300D6D147 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F82F796016BEF10300D6D147 /* SystemConfiguration.framework */; };
 		F838023016BEC4EB00C5A8EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F838022F16BEC4EB00C5A8EE /* UIKit.framework */; };
 		F838023216BEC4EB00C5A8EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F838023116BEC4EB00C5A8EE /* Foundation.framework */; };
@@ -24,7 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F82B136F16CA770200031F49 /* libGameAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGameAnalytics.a; sourceTree = "<group>"; };
+		F819B04116E87E8200ED3557 /* GameAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameAnalytics.h; sourceTree = "<group>"; };
+		F819B04216E87E8200ED3557 /* libGameAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGameAnalytics.a; sourceTree = "<group>"; };
+		F81BA6AE16E7EB7300D2BE15 /* BatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatchViewController.h; sourceTree = "<group>"; };
+		F81BA6AF16E7EB7300D2BE15 /* BatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatchViewController.m; sourceTree = "<group>"; };
 		F82F796016BEF10300D6D147 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F838022C16BEC4EB00C5A8EE /* GA iOS Wrapper Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GA iOS Wrapper Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F838022F16BEC4EB00C5A8EE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -43,7 +47,6 @@
 		F838024B16BEC4EB00C5A8EE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		F838024D16BEC4EB00C5A8EE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		F838024E16BEC4EB00C5A8EE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		F838D01D16C9764500CF5ED7 /* GameAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameAnalytics.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +58,22 @@
 				F838023016BEC4EB00C5A8EE /* UIKit.framework in Frameworks */,
 				F838023216BEC4EB00C5A8EE /* Foundation.framework in Frameworks */,
 				F838023416BEC4EB00C5A8EE /* CoreGraphics.framework in Frameworks */,
-				F82B137016CA770200031F49 /* libGameAnalytics.a in Frameworks */,
+				F819B04316E87E8200ED3557 /* libGameAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F819B04016E87E8200ED3557 /* libGameAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				F819B04116E87E8200ED3557 /* GameAnalytics.h */,
+				F819B04216E87E8200ED3557 /* libGameAnalytics.a */,
+			);
+			path = libGameAnalytics;
+			sourceTree = "<group>";
+		};
 		F838022316BEC4EB00C5A8EE = {
 			isa = PBXGroup;
 			children = (
@@ -82,7 +94,7 @@
 		F838022E16BEC4EB00C5A8EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F838D01C16C9764500CF5ED7 /* GameAnalyticsSDK */,
+				F819B04016E87E8200ED3557 /* libGameAnalytics */,
 				F82F796016BEF10300D6D147 /* SystemConfiguration.framework */,
 				F838022F16BEC4EB00C5A8EE /* UIKit.framework */,
 				F838023116BEC4EB00C5A8EE /* Foundation.framework */,
@@ -100,6 +112,8 @@
 				F838024A16BEC4EB00C5A8EE /* MainStoryboard_iPad.storyboard */,
 				F838024D16BEC4EB00C5A8EE /* ViewController.h */,
 				F838024E16BEC4EB00C5A8EE /* ViewController.m */,
+				F81BA6AE16E7EB7300D2BE15 /* BatchViewController.h */,
+				F81BA6AF16E7EB7300D2BE15 /* BatchViewController.m */,
 				F838023616BEC4EB00C5A8EE /* Supporting Files */,
 			);
 			path = "GA iOS Wrapper Demo";
@@ -117,15 +131,6 @@
 				F838024516BEC4EB00C5A8EE /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		F838D01C16C9764500CF5ED7 /* GameAnalyticsSDK */ = {
-			isa = PBXGroup;
-			children = (
-				F838D01D16C9764500CF5ED7 /* GameAnalytics.h */,
-				F82B136F16CA770200031F49 /* libGameAnalytics.a */,
-			);
-			path = GameAnalyticsSDK;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +203,7 @@
 				F838023C16BEC4EB00C5A8EE /* main.m in Sources */,
 				F838024016BEC4EB00C5A8EE /* AppDelegate.m in Sources */,
 				F838024F16BEC4EB00C5A8EE /* ViewController.m in Sources */,
+				F81BA6B016E7EB7300D2BE15 /* BatchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +303,8 @@
 				INFOPLIST_FILE = "GA iOS Wrapper Demo/GA iOS Wrapper Demo-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/GameAnalyticsSDK\"",
+					"\"$(SRCROOT)/libGameAnalytics\"",
+					"\"$(SRCROOT)\"/**",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -313,7 +320,8 @@
 				INFOPLIST_FILE = "GA iOS Wrapper Demo/GA iOS Wrapper Demo-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/GameAnalyticsSDK\"",
+					"\"$(SRCROOT)/libGameAnalytics\"",
+					"\"$(SRCROOT)\"/**",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
