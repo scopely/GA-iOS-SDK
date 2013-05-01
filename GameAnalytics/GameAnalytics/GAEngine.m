@@ -231,6 +231,7 @@ static NSMutableSet *offlineArchive;
         NSLog(@"logUserDataWithParams called");
     
     NSDictionary *mParams = [self mutableDictionaryFromRequiredFieldsWithEvendID:nil params:params];
+    if(!mParams) return;
     
     NSURLRequest *urlRequest = [self urlRequestForCategory:GACategoryUser
                                                 withParams:mParams];
@@ -245,6 +246,7 @@ static NSMutableSet *offlineArchive;
     if([GASettings isDebugLogEnabled])
         NSLog(@"logGameDesignDataEvent called");
     NSDictionary *mParams = [self mutableDictionaryFromRequiredFieldsWithEvendID:eventID params:params];
+    if(!mParams) return;
     
     NSURLRequest *urlRequest = [self urlRequestForCategory:GACategoryDesign
                                                 withParams:mParams];
@@ -259,6 +261,7 @@ static NSMutableSet *offlineArchive;
     if([GASettings isDebugLogEnabled])
         NSLog(@"logBusinessDataEvent called");
     NSDictionary *mParams = [self mutableDictionaryFromRequiredFieldsWithEvendID:eventID params:params];
+    if(!mParams) return;
     
     NSURLRequest *urlRequest = [self urlRequestForCategory:GACategoryBusiness
                                                 withParams:mParams];
@@ -273,6 +276,7 @@ static NSMutableSet *offlineArchive;
     if([GASettings isDebugLogEnabled])
         NSLog(@"logQualityAssuranceDataEvent called");
     NSDictionary *mParams = [self mutableDictionaryFromRequiredFieldsWithEvendID:eventID params:params];
+    if(!mParams) return;
     
     NSURLRequest *urlRequest = [self urlRequestForCategory:GACategoryQuality
                                                 withParams:mParams];
@@ -386,18 +390,6 @@ static NSMutableSet *offlineArchive;
 
 -(NSDictionary *) mutableDictionaryFromRequiredFieldsWithEvendID:(NSString *)eventID params:(NSDictionary *)params
 {
-    NSMutableDictionary *mutableParams;
-    if(params)
-    {
-        mutableParams= [params mutableCopy];
-    } else {
-        mutableParams = [[NSMutableDictionary alloc] init];
-    }
-    
-    if(eventID)
-    {
-        [mutableParams setObject:eventID forKey:@"event_id"];
-    }
     
     /*
      Make sure userID is not nil. Try to get the value if it is.
@@ -409,6 +401,19 @@ static NSMutableSet *offlineArchive;
     {
         _userID = [self getUserID];
         if(!self.userID) return nil;
+    }
+    
+    NSMutableDictionary *mutableParams;
+    if(params)
+    {
+        mutableParams= [params mutableCopy];
+    } else {
+        mutableParams = [[NSMutableDictionary alloc] init];
+    }
+    
+    if(eventID)
+    {
+        [mutableParams setObject:eventID forKey:@"event_id"];
     }
     
     //required params:
