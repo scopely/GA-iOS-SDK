@@ -64,6 +64,12 @@ To start using the iOS API Wrapper you will have to create an account on the web
 	![SystemConfiguration.framework](https://github.com/GameAnalytics/GA-iOS-SDK/raw/master/Screenshots/systemconfig.png)
 	
 	This is required for Reachability to manage network operations efficiently.
+	
+	Find the `AdSupport.framework` in the list and click Add.
+	
+	`AdSupport.framework` also should be listed under the "Link Binary With Libraries" group.
+	
+	This is required to get advertising Identifier on iOS6+.
 
 5. Select your project, target and choose "Build Settings" tab.
 	Under "Linking" group click on "Other Linker Flags" and add `-ObjC` flag. 
