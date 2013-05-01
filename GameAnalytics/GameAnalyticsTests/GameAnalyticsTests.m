@@ -7,7 +7,7 @@
 //
 
 #import "GameAnalyticsTests.h"
-#import "NSString+md5.h"
+#import "NSString+GAMD5.h"
 
 @implementation GameAnalyticsTests
 
