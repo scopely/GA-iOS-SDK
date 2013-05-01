@@ -10,6 +10,7 @@
 #import "GASettings.h"
 #import "NSString+GAMD5.h"
 
+#import <AdSupport/ASIdentifierManager.h>
 #import <UIKit/UIApplication.h>
 
 @interface GAEngine ()
@@ -25,6 +26,7 @@
 -(void) enqueueOperation:(GARequest*) request;
 -(void) addRequestToOfflineArchiveMutableSet:(GARequest *)request;
 -(void) removeRequestFromOfflineArchiveMutableSet:(GARequest *)request;
+-(NSString *)getUserID;
 -(NSString *)getGUID;
 
 
@@ -202,13 +204,7 @@ static NSMutableSet *offlineArchive;
         _secretKey = secretKey;
         _build = build;
         
-        NSString *userID = [GASettings getCustomUserID];
-        if(userID)
-        {
-            _userID = userID;
-        } else {
-            _userID = [GAOpenUDID value];
-        }
+        _userID = [self getUserID];
         _sessionID = [self getGUID];
         [self commonInit];
     }
@@ -326,6 +322,29 @@ static NSMutableSet *offlineArchive;
 
 #pragma mark - Private Methods
 
+-(NSString *)getUserID
+{
+    NSString *userID = [GASettings getCustomUserID];
+    if(userID)
+    {
+        return userID;
+    } else {
+        if (!NSClassFromString(@"ASIdentifierManager"))
+        {
+            return [GAOpenUDID value];//use OpenUDID before iOS6
+            
+        } else { //iOS6+
+            
+            if([[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled])
+            {
+                return [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+            }
+        }
+    }
+    
+    return nil;
+}
+
 -(void) enqueueOperation:(GARequest*) request
 {
     if([GASettings isBatchRequestsEnabled])
@@ -378,6 +397,18 @@ static NSMutableSet *offlineArchive;
     if(eventID)
     {
         [mutableParams setObject:eventID forKey:@"event_id"];
+    }
+    
+    /*
+     Make sure userID is not nil. Try to get the value if it is.
+     
+     Could be nil if the app is running in the background, before the user has unlocked the device
+     the first time after the device has been restarted. If the value is nil, wait and get the value again later.
+     */
+    if(!self.userID)
+    {
+        _userID = [self getUserID];
+        if(!self.userID) return nil;
     }
     
     //required params:
