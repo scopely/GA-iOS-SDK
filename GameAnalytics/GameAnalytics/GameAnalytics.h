@@ -151,6 +151,15 @@
 + (void)setArchiveDataLimit:(NSInteger)limit;
 
 /*!
+ *  @abstract Clear all pending events.
+ *
+ *  @discussion
+ *  Use this call clear all pending events when archive Data for offline usage is enabled.
+ *
+ */
++ (void)clearEvents;
+
+/*!
  *  @abstract Enable batch requests
  *
  *  @discussion

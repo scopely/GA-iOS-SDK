@@ -90,6 +90,12 @@ static NSMutableSet *offlineArchive;
     }
 }
 
+-(void)clearEvents
+{
+    [offlineArchive removeAllObjects];
+}
+
+
 -(BOOL)sendBatch
 {
     if([GASettings isBatchRequestsEnabled] && [self isReachable])

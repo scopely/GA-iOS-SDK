@@ -78,6 +78,11 @@ static GAEngine *_gaEngine;
     [GASettings setArchiveDataLimit:limit];
 }
 
++ (void)clearEvents
+{
+    [self.gaEngine clearEvents];
+}
+
 + (void)setBatchRequestsEnabled:(BOOL)value
 {
     [GASettings setBatchRequestsEnabled:value];

@@ -47,6 +47,8 @@ typedef enum : NSInteger
 
 -(void)updateSessionID;
 
+-(void)clearEvents;
+
 -(BOOL)sendBatch;
 
 
