@@ -25,4 +25,11 @@
 + (BOOL)isBatchRequestsEnabled;
 + (void)setBatchRequestsEnabled:(BOOL)value;
 
+
++ (BOOL)canSubmitWhileRoaming;
++ (void)setSubmitWhileRoaming:(BOOL)value;
+
++ (BOOL)canSubmitSystemInfo;
++ (void)setSubmitSystemInfo:(BOOL)value;
+
 @end

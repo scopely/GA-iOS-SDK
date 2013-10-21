@@ -45,6 +45,8 @@ typedef enum : NSInteger
 -(void)logQualityAssuranceDataEvent:(NSString *)eventID
                          withParams:(NSDictionary *)params;
 
+-(NSString *)getUserID;
+
 -(void)updateSessionID;
 
 -(void)clearEvents;

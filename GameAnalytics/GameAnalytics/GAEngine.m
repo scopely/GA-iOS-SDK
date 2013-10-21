@@ -26,7 +26,7 @@
 -(void) enqueueOperation:(GARequest*) request;
 -(void) addRequestToOfflineArchiveMutableSet:(GARequest *)request;
 -(void) removeRequestFromOfflineArchiveMutableSet:(GARequest *)request;
--(NSString *)getUserID;
+
 -(NSString *)getGUID;
 
 
@@ -363,8 +363,15 @@ static NSMutableSet *offlineArchive;
     } else {
         if([self isReachable])
         {
-            [request start];
-            [GAEngine addRequestToInProgressMutableSet:request];
+            //Check if using romaming
+            if([self.reachability currentReachabilityStatus] == ReachableViaWWAN && ![GASettings canSubmitWhileRoaming])
+            {
+                //Add request to offline archive if submit while roaming is disabled
+                [self addRequestToOfflineArchiveMutableSet:request];
+            } else {
+                [request start];
+                [GAEngine addRequestToInProgressMutableSet:request];
+            }
         } else if([GASettings isArchiveDataEnabled]) {
             [self addRequestToOfflineArchiveMutableSet:request];
         }

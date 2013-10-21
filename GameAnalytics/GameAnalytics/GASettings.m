@@ -17,6 +17,8 @@
 static BOOL _isDebugLogEnabled = NO;
 static BOOL _isArchiveDataEnabled = NO;
 static BOOL _isBatchRequestsEnabled = NO;
+static BOOL _submitWhileRoaming = YES;
+static BOOL _submitSystemInfo = NO;
 static NSInteger _archiveDataLimit = NO;
 static NSString *_customUserID = nil;
 
@@ -84,6 +86,26 @@ static NSString *_customUserID = nil;
 + (void)setBatchRequestsEnabled:(BOOL)value
 {
     _isBatchRequestsEnabled = value;
+}
+
++ (BOOL)canSubmitWhileRoaming
+{
+    return _submitWhileRoaming;
+}
+
++ (void)setSubmitWhileRoaming:(BOOL)value
+{
+    _submitWhileRoaming = value;
+}
+
++ (BOOL)canSubmitSystemInfo
+{
+    return _submitSystemInfo;
+}
+
++ (void)setSubmitSystemInfo:(BOOL)value
+{
+    _submitSystemInfo = value;
 }
 
 @end

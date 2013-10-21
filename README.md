@@ -140,6 +140,10 @@ To update the session ID when you need to start a new session use the following 
 Set custom user ID, if you don't want to use default OpenUDID.
 
 	+ (void)setCustomUserID:(NSString *)udid;
+	
+####Get user ID
+
+	+ (NSString *)getUserID;
 
 ####Enable debug logs to console
 
@@ -157,6 +161,12 @@ The default setting for this method is NO.
 
 	+ (void)setArchiveDataEnabled:(BOOL)value;
 	
+####Clear all pending events.
+
+Use this method to clear all pending events when archive Data for offline usage is enabled.
+
+	+ (void)clearEvents;
+	
 ####Batch requests
 
 Batching allows you to pass several log requests in a single HTTP request.
@@ -164,6 +174,14 @@ Call `[GameAnalytics sendBatch];` to send data.
 The default setting for this method is NO.
 
 	+ (void)setBatchRequestsEnabled:(BOOL)value;
+	
+####Submit While Roaming
+
+If enabled, data will be submitted to the GameAnalytics servers
+while the mobile device is roaming (internet connection via carrier data network).
+The default setting for this method is NO (enabled).
+
+	+ (void)setSubmitWhileRoaming:(BOOL)value;
 	
 ## License
 

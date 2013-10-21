@@ -63,6 +63,11 @@ static GAEngine *_gaEngine;
     [GASettings setCustomUserID:userID];
 }
 
++ (NSString *)getUserID
+{
+    return [self.gaEngine getUserID];
+}
+
 + (void)setDebugLogEnabled:(BOOL)value
 {
     [GASettings setDebugLogEnabled:value];
@@ -91,6 +96,11 @@ static GAEngine *_gaEngine;
 + (BOOL)sendBatch
 {
     return [self.gaEngine sendBatch];
+}
+
++ (void)setSubmitWhileRoaming:(BOOL)value
+{
+    [GASettings setSubmitWhileRoaming:value];
 }
 
 @end

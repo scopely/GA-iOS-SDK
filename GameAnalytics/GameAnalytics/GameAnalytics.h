@@ -112,6 +112,12 @@
 + (void)setCustomUserID:(NSString *)userID;
 
 /*!
+ *  @abstract Get user ID.
+ *
+ */
++ (NSString *)getUserID;
+
+/*!
  *  @abstract Enable debug logs to console.
  *
  *  @discussion
@@ -183,5 +189,20 @@
  *
  */
 + (BOOL)sendBatch;
+
+/*!
+ *
+ *  @abstract Submit While Roaming
+ *
+ *  @discussion
+ *  If enabled, data will be submitted to the GameAnalytics servers
+ *  while the mobile device is roaming (internet connection via carrier data network).
+ *
+ *  @note The default setting for this method is NO (enabled).
+ *
+ *  @param value @c YES to enable submiting while roaming, @c NO disable.
+ *
+ */
++ (void)setSubmitWhileRoaming:(BOOL)value;
 
 @end
