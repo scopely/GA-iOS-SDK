@@ -24,6 +24,11 @@
 		F83235CE16BD40FB007A1B4E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83235CD16BD40FA007A1B4E /* SystemConfiguration.framework */; };
 		F83235ED16BDA5E3007A1B4E /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F83235E516BDA5E3007A1B4E /* libOCMock.a */; };
 		F83235F016BDA864007A1B4E /* GARequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F83235EF16BDA864007A1B4E /* GARequestTest.m */; };
+		F836226517311C080066047D /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F836226417311C080066047D /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F8362266173127700066047D /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F836226417311C080066047D /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F8362268173129700066047D /* GAOpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = F85A413B16D3E2FE0076005A /* GAOpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F8362269173129FA0066047D /* GAReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F85A413E16D3E30F0076005A /* GAReachability.m */; };
+		F836226A17312A810066047D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83235CD16BD40FA007A1B4E /* SystemConfiguration.framework */; };
 		F838D01216C9717500CF5ED7 /* GAEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = F838D01116C9717500CF5ED7 /* GAEngine.m */; };
 		F838D01316C9717500CF5ED7 /* GAEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = F838D01116C9717500CF5ED7 /* GAEngine.m */; };
 		F838D01616C971C600CF5ED7 /* GASettings.m in Sources */ = {isa = PBXBuildFile; fileRef = F838D01516C971C600CF5ED7 /* GASettings.m */; };
@@ -85,6 +90,7 @@
 		F83235EC16BDA5E3007A1B4E /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 		F83235EE16BDA863007A1B4E /* GARequestTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GARequestTest.h; sourceTree = "<group>"; };
 		F83235EF16BDA864007A1B4E /* GARequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GARequestTest.m; sourceTree = "<group>"; };
+		F836226417311C080066047D /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		F838D01016C9717500CF5ED7 /* GAEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAEngine.h; sourceTree = "<group>"; };
 		F838D01116C9717500CF5ED7 /* GAEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAEngine.m; sourceTree = "<group>"; };
 		F838D01416C971C600CF5ED7 /* GASettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GASettings.h; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F836226517311C080066047D /* AdSupport.framework in Frameworks */,
 				F83235CE16BD40FB007A1B4E /* SystemConfiguration.framework in Frameworks */,
 				F83234D116BD1052007A1B4E /* Foundation.framework in Frameworks */,
 				F838D01816C973E800CF5ED7 /* UIKit.framework in Frameworks */,
@@ -111,6 +118,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F836226A17312A810066047D /* SystemConfiguration.framework in Frameworks */,
+				F8362266173127700066047D /* AdSupport.framework in Frameworks */,
 				F83234E016BD1053007A1B4E /* SenTestingKit.framework in Frameworks */,
 				F83234E216BD1053007A1B4E /* UIKit.framework in Frameworks */,
 				F83234E316BD1053007A1B4E /* Foundation.framework in Frameworks */,
@@ -143,6 +152,7 @@
 		F83234CF16BD1052007A1B4E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F836226417311C080066047D /* AdSupport.framework */,
 				F83235CD16BD40FA007A1B4E /* SystemConfiguration.framework */,
 				F83234D016BD1052007A1B4E /* Foundation.framework */,
 				F83234DF16BD1053007A1B4E /* SenTestingKit.framework */,
@@ -386,6 +396,8 @@
 				F83235F016BDA864007A1B4E /* GARequestTest.m in Sources */,
 				F838D01316C9717500CF5ED7 /* GAEngine.m in Sources */,
 				F838D01716C971C600CF5ED7 /* GASettings.m in Sources */,
+				F8362268173129700066047D /* GAOpenUDID.m in Sources */,
+				F8362269173129FA0066047D /* GAReachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
