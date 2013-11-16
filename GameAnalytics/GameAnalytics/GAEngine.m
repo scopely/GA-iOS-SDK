@@ -528,11 +528,21 @@ static NSMutableSet *offlineArchive;
 
 -(void) dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kGAReachabilityChangedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kGAReachabilityChangedNotification
+                                                  object:nil];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillTerminateNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIApplicationDidReceiveMemoryWarningNotification
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIApplicationDidEnterBackgroundNotification
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIApplicationWillTerminateNotification
+                                                  object:nil];
 }
 
 +(void) dealloc
