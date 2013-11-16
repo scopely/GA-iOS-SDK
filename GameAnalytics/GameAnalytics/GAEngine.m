@@ -228,7 +228,14 @@ static NSMutableSet *offlineArchive;
     [self.reachability startNotifier];
     [self useCache];
     
-    [self logUserDataWithParams:@{@"platform": @"iOS", @"device": [UIDevice currentDevice].model, @"os_major": [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."][0], @"os_minor": [UIDevice currentDevice].systemVersion, @"sdk_version":@"0.2"}];
+    [self logUserDataWithParams:@{
+                                  @"platform": @"iOS",
+                                    @"device": [UIDevice currentDevice].model,
+                                  @"os_major": [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."][0],
+                                  @"os_minor": [UIDevice currentDevice].systemVersion,
+                                    @"ios_id": self.userID,
+                               @"sdk_version":@"0.2"
+                                  }];
     
 }
 
