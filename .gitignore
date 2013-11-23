@@ -1,7 +1,8 @@
-.DS_*
+.DS_Store
+build/
 Demo/Pods
 Demo/Podfile.lock
-Demo/GA iOS Wrapper Demo.xcodeproj/xcshareddata/xcschemes/
-GameAnalytics/GameAnalytics.xcodeproj/project.xcworkspace/xcuserdataxcschemes/
+xcuserdata
+profile
 Binary Distribution/libGameAnalytics/GameAnalytics.h
 Binary Distribution/libGameAnalytics/libGameAnalytics.a
