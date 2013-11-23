@@ -23,7 +23,9 @@ static GAEngine *_gaEngine;
     return _gaEngine;
 }
 
-+ (void)setGameKey:(NSString *)gameKey secretKey:(NSString *)secretKey build:(NSString *)build
++ (void)setGameKey:(NSString *)gameKey
+         secretKey:(NSString *)secretKey
+             build:(NSString *)build
 {
     _gaEngine = [[GAEngine alloc] initWithHGameKey:gameKey
                                          secretKey:secretKey
@@ -35,19 +37,37 @@ static GAEngine *_gaEngine;
     [self.gaEngine logUserDataWithParams:params];
 }
 
-+ (void)logGameDesignDataEvent:(NSString *)eventID withParams:(NSDictionary *)params
++ (void)logGameDesignDataEvent:(NSString *)eventID
+                    withParams:(NSDictionary *)params
 {
     [self.gaEngine logGameDesignDataEvent:eventID withParams:params];
 }
 
-+ (void)logBusinessDataEvent:(NSString *)eventID withParams:(NSDictionary *)params
++ (void)logBusinessDataEvent:(NSString *)eventID
+                  withParams:(NSDictionary *)params
 {
-    [self.gaEngine logBusinessDataEvent:eventID withParams:params];
+    [self.gaEngine logBusinessDataEvent:eventID
+                         currencyString:nil
+                           amountNumber:nil
+                             withParams:params];
 }
 
-+ (void)logQualityAssuranceDataEvent:(NSString *)eventID withParams:(NSDictionary *)params
++ (void)logBusinessDataEvent:(NSString *)eventID
+              currencyString:(NSString *)currency
+                amountNumber:(NSNumber *)amount
+                  withParams:(NSDictionary *)params
 {
-    [self.gaEngine logQualityAssuranceDataEvent:eventID withParams:params];
+    [self.gaEngine logBusinessDataEvent:eventID
+                         currencyString:currency
+                           amountNumber:amount
+                             withParams:params];
+}
+
++ (void)logQualityAssuranceDataEvent:(NSString *)eventID
+                          withParams:(NSDictionary *)params
+{
+    [self.gaEngine logQualityAssuranceDataEvent:eventID
+                                     withParams:params];
 }
 
 + (void)updateSessionID

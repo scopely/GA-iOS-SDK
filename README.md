@@ -23,6 +23,22 @@ To start using the iOS API Wrapper you will have to create an account on the web
 
 ##Installation
 
+The best and easiest way is to use [CocoaPods](http://cocoapods.org).
+[CocoaPods](http://cocoapods.org) is the best way to manage library dependencies in Objective-C projects.
+See the ["Getting Started"](http://cocoapods.org/#get_started) guide for more information.
+
+
+#### CocoaPods Podfile example
+
+```ruby
+platform :ios
+
+pod "GA-iOS-SKD"
+```
+
+### Alternatives
+Not using CocoaPods? You should, it's awesome! But okay, here are alterative methods.
+
 1. Download latest version of GamesAnalytics iOS Wrapper binaries.
 	The archive should contain these files:
 
@@ -117,7 +133,10 @@ Log Game design data example:
 Used to track business related events, such as purchases of virtual items.
 Log Business data example:
 
-    [GameAnalytics logBusinessDataEvent:@"PurchaseWeapon:Shotgun" withParams:@{@"area" : @"Level 1", @"x" : @1.0f, @"y" : @1.0f, @"z" : @1.0f, @"currency" : @"LTL", @"amount" : @1000 }];
+    [GameAnalytics logBusinessDataEvent:@"PurchaseWeapon:Shotgun"
+              currencyString:@"LTL"
+                amountNumber:@1000
+                  withParams:@{@"area" : @"Level 1", @"x" : @1.0f, @"y" : @1.0f, @"z" : @1.0f}];
 
 ###Quality Assurance data
 

@@ -271,13 +271,49 @@ static NSMutableSet *offlineArchive;
     [self enqueueOperation:request];
 }
 
+
 -(void)logBusinessDataEvent:(NSString *)eventID
+             currencyString:(NSString *)currency
+               amountNumber:(NSNumber *)amount
                  withParams:(NSDictionary *)params
 {
     if([GASettings isDebugLogEnabled])
         NSLog(@"logBusinessDataEvent called");
-    NSDictionary *mParams = [self mutableDictionaryFromRequiredFieldsWithEvendID:eventID params:params];
-    if(!mParams) return;
+
+    NSDictionary *paramsDict = [self mutableDictionaryFromRequiredFieldsWithEvendID:eventID
+                                                                             params:params];
+    if(!paramsDict) return;
+    
+    //backward compatibility code start
+    if(!currency)
+    {
+        if(![params objectForKey:@"currency"])
+        {
+            if([GASettings isDebugLogEnabled])
+                NSLog(@"currency is required");
+            return;
+        } else {
+            currency = [params objectForKey:@"currency"];
+        }
+    }
+    
+    if(!amount)
+    {
+        if(![params objectForKey:@"amount"])
+        {
+            if([GASettings isDebugLogEnabled])
+                NSLog(@"amount is required");
+            return;
+        } else {
+            amount = [params objectForKey:@"amount"];
+        }
+    }
+    //backward compatibility code end
+    
+    NSMutableDictionary *mParams = [NSMutableDictionary dictionaryWithDictionary:paramsDict];
+    
+    [mParams setObject:currency forKey:@"currency"];
+    [mParams setObject:amount forKey:@"amount"];
     
     NSURLRequest *urlRequest = [self urlRequestForCategory:GACategoryBusiness
                                                 withParams:mParams];
@@ -411,7 +447,8 @@ static NSMutableSet *offlineArchive;
 }
 
 
--(NSDictionary *) mutableDictionaryFromRequiredFieldsWithEvendID:(NSString *)eventID params:(NSDictionary *)params
+-(NSDictionary *) mutableDictionaryFromRequiredFieldsWithEvendID:(NSString *)eventID
+                                                          params:(NSDictionary *)params
 {
     
     /*

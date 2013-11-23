@@ -40,6 +40,8 @@ typedef enum : NSInteger
                    withParams:(NSDictionary *)params;
 
 -(void)logBusinessDataEvent:(NSString *)eventID
+             currencyString:(NSString *)currency
+               amountNumber:(NSNumber *)amount
                  withParams:(NSDictionary *)params;
 
 -(void)logQualityAssuranceDataEvent:(NSString *)eventID
