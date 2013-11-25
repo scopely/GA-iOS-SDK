@@ -16,8 +16,7 @@
     
     [GameAnalytics setArchiveDataEnabled:YES];
     [GameAnalytics setDebugLogEnabled:YES];
-    [GameAnalytics setGameKey:@"39af7ee8e4a1f548e27107037cfd8d11" secretKey:@"b2acb06fe166b28fdbd326ddd059d5d8f4a5b6bc" build:@"demoBuild"];
-    //[GameAnalytics setGameKey:@"__CHANGE_ME__" secretKey:@"__CHANGE_ME__" build:@"__CHANGE_ME__"];
+    [GameAnalytics setGameKey:@"__CHANGE_ME__" secretKey:@"__CHANGE_ME__" build:@"__CHANGE_ME__"];
 
     return YES;
 }
