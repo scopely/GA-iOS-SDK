@@ -50,7 +50,7 @@
 
 -(IBAction)logBusinessData:(id)sender
 {
-    [GameAnalytics logBusinessDataEvent:@"PurchaseWeapon:Shotgun" withParams:@{@"area" : @"Level 1", @"x" : @1.0f, @"y" : @1.0f, @"z" : @1.0f, @"currency" : @"LTL", @"amount" : @1000 }];
+    [GameAnalytics logBusinessDataEvent:@"PurchaseWeapon:Shotgun" currencyString:@"LTL" amountNumber:@1000 withParams:@{@"area" : @"Level 1", @"x" : @1.0f, @"y" : @1.0f, @"z" : @1.0f}];
 }
 
 -(IBAction)logGameDesingData:(id)sender
