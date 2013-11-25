@@ -15,7 +15,7 @@
  *
  *  @param gameKey Your appliations's game key.
  *
- *  @note Go to the https://beta.gameanalytics.com/ to register for your game and secret keys.
+ *  @note Go to the https://gameanalytics.com/ to register for your game and secret keys.
  *
  *  @param secretKey Your appliations's secret key
  *
@@ -23,7 +23,9 @@
  *
  */
 
-+ (void)setGameKey:(NSString *)gameKey secretKey:(NSString *)secretKey build:(NSString *)build;
++ (void)setGameKey:(NSString *)gameKey
+         secretKey:(NSString *)secretKey
+             build:(NSString *)build;
 
 /*!
  *  @abstract User data
@@ -56,7 +58,8 @@
  *  @param value        float        No           Numeric value which may be used to enhance the event_id.
  *
  */
-+ (void)logGameDesignDataEvent:(NSString *)eventID withParams:(NSDictionary *)params;
++ (void)logGameDesignDataEvent:(NSString *)eventID
+                    withParams:(NSDictionary *)params;
 
 /*!
  *  @abstract Business data
@@ -70,11 +73,17 @@
  *  @param  y           float        No           Y-position where the event occurred.
  *  @param  z           float        No           Z-position where the event occurred.
  *
- *  @param currency     string       No           A custom string for identifying the currency. For example "USD", "US Dollars" or "GA Dollars". Conversion between different real currencies should be done before sending the amount to the API.
- *  @param amount       integer      No           Numeric value which corresponds to the cost of the purchase in the monetary unit divided by 100. For example, if the currency is "USD", the amount should be specified in cents.
+ *  @param currency     string       Yes           A custom string for identifying the currency. For example "USD", "US Dollars" or "GA Dollars". Conversion between different real currencies should be done before sending the amount to the API.
+ *  @param amount       integer      Yes           Numeric value which corresponds to the cost of the purchase in the monetary unit divided by 100. For example, if the currency is "USD", the amount should be specified in cents.
  *
  */
-+ (void)logBusinessDataEvent:(NSString *)eventID withParams:(NSDictionary *)params;
++ (void)logBusinessDataEvent:(NSString *)eventID
+                  withParams:(NSDictionary *)params DEPRECATED_ATTRIBUTE;
+
++ (void)logBusinessDataEvent:(NSString *)eventID
+              currencyString:(NSString *)currency
+                amountNumber:(NSNumber *)amount
+                  withParams:(NSDictionary *)params;
 
 /*!
  *  @abstract Quality Assurance data
@@ -91,7 +100,8 @@
  *  @param message      string       No           Used to describe the event in further detail.
  *
  */
-+ (void)logQualityAssuranceDataEvent:(NSString *)eventID withParams:(NSDictionary *)params;
++ (void)logQualityAssuranceDataEvent:(NSString *)eventID
+                          withParams:(NSDictionary *)params;
 
 /*!
  *  @abstract Updates session ID
