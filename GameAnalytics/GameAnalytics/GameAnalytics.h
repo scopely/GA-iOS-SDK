@@ -49,7 +49,7 @@
  *                               <<"install_ad">>, <<"install_keyword">>];
  *
  */
-+ (void)logUserDataWithParams:(NSDictionary *)params;
++ (void)logUserDataWithParams:(NSDictionary *)params DEPRECATED_ATTRIBUTE;
 
 + (void)logUserDataWithGender:(NSString *)gender
                     birthYear:(NSNumber *)birthYear
@@ -87,17 +87,19 @@
  *
  */
 + (void)logGameDesignDataEvent:(NSString *)eventID
-                    withParams:(NSDictionary *)params;
+                    withParams:(NSDictionary *)params DEPRECATED_ATTRIBUTE;
 
-+ (void)logGameDesignDataEvent:(NSString *)eventID;
-
-+ (void)logGameDesignDataEvent:(NSString *)eventID value:(NSNumber *)value;
-
-+ (void)logGameDesignDataEvent:(NSString *)eventID value:(NSNumber *)value
++ (void)logGameDesignDataEvent:(NSString *)eventID
+                         value:(NSNumber *)value
                           area:(NSString *)area
                              x:(NSNumber *)x
                              y:(NSNumber *)y
                              z:(NSNumber *)z;
+
++ (void)logGameDesignDataEvent:(NSString *)eventID
+                         value:(NSNumber *)value;
+
++ (void)logGameDesignDataEvent:(NSString *)eventID;
 
 /*!
  *  @abstract Business data
@@ -121,17 +123,15 @@
 + (void)logBusinessDataEvent:(NSString *)eventID
               currencyString:(NSString *)currency
                 amountNumber:(NSNumber *)amount
-                  withParams:(NSDictionary *)params;
-
-+ (void)logBusinessDataEvent:(NSString *)eventID
-              currencyString:(NSString *)currency;
-
-+ (void)logBusinessDataEvent:(NSString *)eventID
-              currencyString:(NSString *)currency
                         area:(NSString *)area
                            x:(NSNumber *)x
                            y:(NSNumber *)y
                            z:(NSNumber *)z;
+
++ (void)logBusinessDataEvent:(NSString *)eventID
+              currencyString:(NSString *)currency
+                amountNumber:(NSNumber *)amount
+                  withParams:(NSDictionary *)params;
 
 /*!
  *  @abstract Quality Assurance data
@@ -149,10 +149,7 @@
  *
  */
 + (void)logQualityAssuranceDataEvent:(NSString *)eventID
-                          withParams:(NSDictionary *)params;
-
-+ (void)logQualityAssuranceDataEvent:(NSString *)eventID
-                             message:(NSString *)message;
+                          withParams:(NSDictionary *)params DEPRECATED_ATTRIBUTE;
 
 + (void)logQualityAssuranceDataEvent:(NSString *)eventID
                              message:(NSString *)message
@@ -160,6 +157,9 @@
                                    x:(NSNumber *)x
                                    y:(NSNumber *)y
                                    z:(NSNumber *)z;
+
++ (void)logQualityAssuranceDataEvent:(NSString *)eventID
+                             message:(NSString *)message;
 
 /*!
  *  @abstract Updates session ID
