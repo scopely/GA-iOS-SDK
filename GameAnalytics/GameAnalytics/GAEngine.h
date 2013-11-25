@@ -25,13 +25,13 @@ typedef enum : NSInteger
              secretKey:(NSString *)secretKey
                  build:(NSString *)build;
 
-@property (weak, nonatomic, readonly) NSString *host;
-@property (weak, nonatomic, readonly) NSString *apiVersion;
-@property (weak, nonatomic, readonly) NSString *gameKey;
-@property (weak, nonatomic, readonly) NSString *secretKey;
-@property (weak, nonatomic, readonly) NSString *build;
+@property (strong, nonatomic, readonly) NSString *host;
+@property (strong, nonatomic, readonly) NSString *apiVersion;
+@property (strong, nonatomic, readonly) NSString *gameKey;
+@property (strong, nonatomic, readonly) NSString *secretKey;
+@property (strong, nonatomic, readonly) NSString *build;
 
-@property (weak, nonatomic, readonly) NSString *userID;
+@property (strong, nonatomic, readonly) NSString *userID;
 @property (strong, nonatomic) NSString *sessionID;//could be updated during game
 
 -(void)logUserDataWithParams:(NSDictionary *)params;

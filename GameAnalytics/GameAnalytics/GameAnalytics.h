@@ -15,7 +15,7 @@
  *
  *  @param gameKey Your appliations's game key.
  *
- *  @note Go to the https://beta.gameanalytics.com/ to register for your game and secret keys.
+ *  @note Go to the https://gameanalytics.com/ to register for your game and secret keys.
  *
  *  @param secretKey Your appliations's secret key
  *
