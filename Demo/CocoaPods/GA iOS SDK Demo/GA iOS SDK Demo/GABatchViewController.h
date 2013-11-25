@@ -10,4 +10,15 @@
 
 @interface GABatchViewController : UIViewController
 
+@property (nonatomic, weak) IBOutlet UIButton *toggleLogButton;
+
+-(IBAction)logUserData:(id)sender;
+-(IBAction)logBusinessData:(id)sender;
+-(IBAction)logGameDesingData:(id)sender;
+-(IBAction)logQAData:(id)sender;
+
+-(IBAction)toggleDebugLog:(id)sender;
+
+-(IBAction)batchSend:(id)sender;
+
 @end
