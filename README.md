@@ -27,17 +27,26 @@ The best and easiest way is to use [CocoaPods](http://cocoapods.org).
 [CocoaPods](http://cocoapods.org) is the best way to manage library dependencies in Objective-C projects.
 See the ["Getting Started"](http://cocoapods.org/#get_started) guide for more information.
 
+If you haven't already, you need to install [CocoaPods](http://cocoapods.org).
+In a terminal, type the following commands:
 
-#### CocoaPods Podfile example
+	$ sudo gem install cocoapods
+	$ pod setup
+	
+With CocoaPods installed create a file called Podfile next to your project with the following contents:
 
 ```ruby
-platform :ios
+platform :ios, '5.0'
 
-pod "GA-iOS-SKD"
+pod "GA-iOS-SDK"
 ```
 
+If you already have a Podfile, just add `pod "GA-iOS-SDK"` to the end of it.
+Type pod install into your terminal.
+An Xcode Workspace file will be generated next to your project — use it instead of xcodeproj.
+
 ### Alternatives
-Not using CocoaPods? You should, it's awesome! But okay, here are alterative methods.
+Not using CocoaPods? Here is alterative method.
 
 1. Download latest version of GamesAnalytics iOS Wrapper binaries.
 	The archive should contain these files:
@@ -102,6 +111,10 @@ Not using CocoaPods? You should, it's awesome! But okay, here are alterative met
 Add the following line into your pre-compiled header file (`<projectname>_Prefix.pch`) 
 
     #import "GameAnalytics.h"
+    
+when using CocoaPods add following line instead
+    
+    #import <GA-iOS-SDK/GameAnalytics.h>
 
 In your application delegate's `application:didFinishLaunchingWithOptions:` method, add the following line to set your Game keys and Secret keys:
 
@@ -126,7 +139,8 @@ Log User data example:
 Used to tracking game design events, for example level completion time.
 Log Game design data example:
 
-    [GameAnalytics logGameDesignDataEvent:@"PickedUpAmmo:Shotgun" withParams:@{@"area" : @"Level 1", @"x" : @1.0f, @"y" : @1.0f, @"z" : @1.0f, @"value" : @1.0f}];
+    [GameAnalytics logGameDesignDataEvent:@"PickedUpAmmo:Shotgun"
+    						   withParams:@{@"area" : @"Level 1", @"x" : @1.0f, @"y" : @1.0f, @"z" : @1.0f, @"value" : @1.0f}];
 
 ###Business data
 
@@ -143,7 +157,8 @@ Log Business data example:
 Used to tracking events related to quality assurance, such as crashes, system specifications, etc.
 Log Quality Assurance data example:
 
-    [GameAnalytics logQualityAssuranceDataEvent:@"Exceptaion:NullReferenceException" withParams:@{ @"area" : @"Level 1", @"x" : @1.0f, @"y" : @1.0f, @"z" : @1.0f, @"message" : @"at Infragistics.Windows.Internal.TileManager.ItemRowColumnSizeInfo.."}];
+    [GameAnalytics logQualityAssuranceDataEvent:@"Exceptaion:NullReferenceException"
+    								 withParams:@{ @"area" : @"Level 1", @"x" : @1.0f, @"y" : @1.0f, @"z" : @1.0f, @"message" : @"at Infragistics.Windows.Internal.TileManager.ItemRowColumnSizeInfo.."}];
 
 ###Update session ID
 
