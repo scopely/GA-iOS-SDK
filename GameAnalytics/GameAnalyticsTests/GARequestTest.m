@@ -14,7 +14,6 @@
 
 -(NSURLConnection *)urlConnectionForURLRequest:(NSURLRequest *)request;
 -(id)initWithURLRequest:(NSURLRequest *)urlRequest;
-//+(void)generateNoConsumerKeyError:(PXRequestCompletionBlock)completionBlock;
 
 @end
 

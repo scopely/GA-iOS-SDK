@@ -20,9 +20,6 @@
 
 - (void)commonInit;
 -(NSString *)stringForCategory:(GACategory)category;
--(NSDictionary *) mutableDictionaryFromRequiredFieldsWithEvendID:(NSString *)eventID params:(NSDictionary *)params;
--(NSURLRequest *)urlRequestForCategory:(GACategory)category
-                            withParams:(NSDictionary *)params;
 -(void) enqueueOperation:(GARequest*) request;
 -(void) addRequestToOfflineArchiveMutableSet:(GARequest *)request;
 -(void) removeRequestFromOfflineArchiveMutableSet:(GARequest *)request;
@@ -246,7 +243,7 @@ static NSMutableSet *offlineArchive;
     if([GASettings isDebugLogEnabled])
         NSLog(@"logUserDataWithParams called");
     
-    NSDictionary *mParams = [self mutableDictionaryFromRequiredFieldsWithEvendID:nil params:params];
+    NSDictionary *mParams = [self mutableDictionaryFromRequiredFieldsWithEventID:nil params:params];
     if(!mParams) return;
     
     NSURLRequest *urlRequest = [self urlRequestForCategory:GACategoryUser
@@ -261,7 +258,7 @@ static NSMutableSet *offlineArchive;
 {
     if([GASettings isDebugLogEnabled])
         NSLog(@"logGameDesignDataEvent called");
-    NSDictionary *mParams = [self mutableDictionaryFromRequiredFieldsWithEvendID:eventID params:params];
+    NSDictionary *mParams = [self mutableDictionaryFromRequiredFieldsWithEventID:eventID params:params];
     if(!mParams) return;
     
     NSURLRequest *urlRequest = [self urlRequestForCategory:GACategoryDesign
@@ -280,7 +277,7 @@ static NSMutableSet *offlineArchive;
     if([GASettings isDebugLogEnabled])
         NSLog(@"logBusinessDataEvent called");
 
-    NSDictionary *paramsDict = [self mutableDictionaryFromRequiredFieldsWithEvendID:eventID
+    NSDictionary *paramsDict = [self mutableDictionaryFromRequiredFieldsWithEventID:eventID
                                                                              params:params];
     if(!paramsDict) return;
     
@@ -327,7 +324,8 @@ static NSMutableSet *offlineArchive;
 {
     if([GASettings isDebugLogEnabled])
         NSLog(@"logQualityAssuranceDataEvent called");
-    NSDictionary *mParams = [self mutableDictionaryFromRequiredFieldsWithEvendID:eventID params:params];
+    NSDictionary *mParams = [self mutableDictionaryFromRequiredFieldsWithEventID:eventID
+                                                                          params:params];
     if(!mParams) return;
     
     NSURLRequest *urlRequest = [self urlRequestForCategory:GACategoryQuality
@@ -447,7 +445,7 @@ static NSMutableSet *offlineArchive;
 }
 
 
--(NSDictionary *) mutableDictionaryFromRequiredFieldsWithEvendID:(NSString *)eventID
+-(NSDictionary *) mutableDictionaryFromRequiredFieldsWithEventID:(NSString *)eventID
                                                           params:(NSDictionary *)params
 {
     
@@ -499,7 +497,9 @@ static NSMutableSet *offlineArchive;
     [mutableRequest setHTTPMethod:@"POST"];
     
     NSError *jsonError = nil;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params options:kNilOptions error:&jsonError];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params
+                                                       options:kNilOptions
+                                                         error:&jsonError];
     if(jsonError) {
         NSLog(@"JSON error: %@", jsonError.localizedDescription);
     }

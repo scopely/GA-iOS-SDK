@@ -13,10 +13,10 @@
 
 typedef enum : NSInteger
 {
-    GACategoryDesign = 0,//gameplay
-    GACategoryQuality,//quality assurance
-    GACategoryBusiness,//transactions
-    GACategoryUser//player profiles
+    GACategoryDesign = 0,   //gameplay
+    GACategoryQuality,      //quality assurance
+    GACategoryBusiness,     //transactions
+    GACategoryUser          //player profiles
 }GACategory;
 
 @interface GAEngine : NSObject <GARequestDelegate>
@@ -63,5 +63,15 @@ typedef enum : NSInteger
  *	This method is a handy helper that you can use to check for network reachability.
  */
 -(BOOL) isReachable;
+
+
+/*
+ * Following method are public for Tests only
+ */
+
+-(NSURLRequest *)urlRequestForCategory:(GACategory)category
+                            withParams:(NSDictionary *)params;
+-(NSDictionary *) mutableDictionaryFromRequiredFieldsWithEventID:(NSString *)eventID
+                                                          params:(NSDictionary *)params;
 
 @end

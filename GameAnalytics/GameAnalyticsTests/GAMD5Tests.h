@@ -8,6 +8,6 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface GameAnalyticsTests : SenTestCase
+@interface GAMD5Tests : SenTestCase
 
 @end

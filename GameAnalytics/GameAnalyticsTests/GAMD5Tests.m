@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Aleksandras Smirnovas. All rights reserved.
 //
 
-#import "GameAnalyticsTests.h"
+#import "GAMD5Tests.h"
 #import "NSString+GAMD5.h"
 
-@implementation GameAnalyticsTests
+@implementation GAMD5Tests
 
 - (void)setUp
 {
