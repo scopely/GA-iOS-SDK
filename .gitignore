@@ -1,8 +1,8 @@
 .DS_Store
 build/
-Demo/Pods
-Demo/Podfile.lock
+Pods
+Podfile.lock
 xcuserdata
 profile
-Binary Distribution/libGameAnalytics/GameAnalytics.h
-Binary Distribution/libGameAnalytics/libGameAnalytics.a
+Binary\ Distribution/libGameAnalytics/GameAnalytics.h
+Binary\ Distribution/libGameAnalytics/libGameAnalytics.a
