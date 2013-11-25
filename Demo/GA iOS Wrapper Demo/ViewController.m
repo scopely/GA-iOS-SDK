@@ -47,17 +47,22 @@
 
 -(IBAction)logBusinessData:(id)sender
 {
-    [GameAnalytics logBusinessDataEvent:@"PurchaseWeapon:Shotgun" currencyString:@"LTL" amountNumber:@1000 withParams:@{@"area" : @"Level 1", @"x" : @1.0f, @"y" : @1.0f, @"z" : @1.0f}];
+    [GameAnalytics logBusinessDataEvent:@"PurchaseWeapon:Shotgun"
+                         currencyString:@"LTL"
+                           amountNumber:@1000
+                             withParams:@{@"area" : @"Level 1", @"x" : @1.0f, @"y" : @1.0f, @"z" : @1.0f}];
 }
 
 -(IBAction)logGameDesingData:(id)sender
 {
-    [GameAnalytics logGameDesignDataEvent:@"PickedUpAmmo:Shotgun" withParams:@{@"area" : @"Level 1", @"x" : @1.0f, @"y" : @1.0f, @"z" : @1.0f, @"value" : @1.0f}];
+    [GameAnalytics logGameDesignDataEvent:@"PickedUpAmmo:Shotgun"
+                               withParams:@{@"area" : @"Level 1", @"x" : @1.0f, @"y" : @1.0f, @"z" : @1.0f, @"value" : @1.0f}];
 }
 
 -(IBAction)logQAData:(id)sender
 {
-    [GameAnalytics logQualityAssuranceDataEvent:@"Exceptaion:NullReferenceException" withParams:@{ @"area" : @"Level 1", @"x" : @1.0f, @"y" : @1.0f, @"z" : @1.0f, @"message" : @"at Infragistics.Windows.Internal.TileManager.ItemRowColumnSizeInfo.."}];
+    [GameAnalytics logQualityAssuranceDataEvent:@"Exceptaion:NullReferenceException"
+                                     withParams:@{ @"area" : @"Level 1", @"x" : @1.0f, @"y" : @1.0f, @"z" : @1.0f, @"message" : @"at Infragistics.Windows.Internal.TileManager.ItemRowColumnSizeInfo.."}];
 }
 
 -(IBAction)toggleDebugLog:(id)sender
