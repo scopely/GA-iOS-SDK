@@ -231,7 +231,7 @@ static NSMutableSet *offlineArchive;
                                   @"os_major": [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."][0],
                                   @"os_minor": [UIDevice currentDevice].systemVersion,
                                     @"ios_id": self.userID,
-                               @"sdk_version":@"0.2"
+                               @"sdk_version":@"GA iOS SDK 0.3"
                                   }];
     
 }
@@ -392,6 +392,8 @@ static NSMutableSet *offlineArchive;
             if([[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled])
             {
                 return [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+            } else {
+                return [GAOpenUDID value];
             }
         }
     }
@@ -514,6 +516,144 @@ static NSMutableSet *offlineArchive;
     [mutableRequest setHTTPBody:[jsonDataString dataUsingEncoding:NSUTF8StringEncoding]];
     
     return [mutableRequest copy];
+}
+
+-(NSDictionary *)userDataDictWithGender:(NSString *)gender
+                              birthYear:(NSNumber *)birthYear
+                            friendCount:(NSNumber *)friendCount
+                               platform:(NSString *)platform
+                                 device:(NSString *)device
+                                osMajor:(NSString *)osMajor
+                                osMinor:(NSString *)osMinor
+                             sdkVersion:(NSString *)sdkVersion
+                       installPublisher:(NSString *)installPublisher
+                            installSite:(NSString *)installSite
+                        installCampaign:(NSString *)installCampaign
+                         installAdgroup:(NSString *)installAdgroup
+                              installAd:(NSString *)installAd
+                         installKeyword:(NSString *)installKeyword
+                                  iosID:(NSString *)iosID
+{
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    if (gender) {
+        params[@"gender"] = gender;
+    }
+    if (birthYear) {
+        params[@"birth_year"] = birthYear;
+    }
+    if (friendCount) {
+        params[@"friend_count"] = friendCount;
+    }
+    if (platform) {
+        params[@"platform"] = platform;
+    }
+    if (device) {
+        params[@"device"] = device;
+    }
+    if (osMajor) {
+        params[@"os_major"] = osMajor;
+    }
+    if (osMinor) {
+        params[@"os_minor"] = osMinor;
+    }
+    if (sdkVersion) {
+        params[@"sdk_version"] = sdkVersion;
+    }
+    if (installPublisher) {
+        params[@"install_publisher"] = installPublisher;
+    }
+    if (installSite) {
+        params[@"install_site"] = installSite;
+    }
+    if (installCampaign) {
+        params[@"install_campaign"] = installCampaign;
+    }
+    if (installAdgroup) {
+        params[@"install_adgroup"] = installAdgroup;
+    }
+    if (installAd) {
+        params[@"install_ad"] = installAd;
+    }
+    if (installKeyword) {
+        params[@"install_keyword"] = installKeyword;
+    }
+    if (iosID) {
+        params[@"ios_id"] = iosID;
+    }
+    
+    return [params copy];
+}
+
+-(NSDictionary *)gameDesignDataDictWithValue:(NSNumber *)value
+                                        area:(NSString *)area
+                                           x:(NSNumber *)x
+                                           y:(NSNumber *)y
+                                           z:(NSNumber *)z
+{
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    if (value) {
+        params[@"value"] = value;
+    }
+    if (area) {
+        params[@"area"] = area;
+    }
+    if (x) {
+        params[@"x"] = x;
+    }
+    if (y) {
+        params[@"y"] = y;
+    }
+    if (z) {
+        params[@"z"] = z;
+    }
+
+    return [params copy];
+}
+
+-(NSDictionary *)businessDataDictWithArea:(NSString *)area
+                                        x:(NSNumber *)x
+                                        y:(NSNumber *)y
+                                        z:(NSNumber *)z
+{
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    if (area) {
+        params[@"area"] = area;
+    }
+    if (x) {
+        params[@"x"] = x;
+    }
+    if (y) {
+        params[@"y"] = y;
+    }
+    if (z) {
+        params[@"z"] = z;
+    }
+    return [params copy];
+}
+
+-(NSDictionary *)qADataDictWithMessage:(NSString *)message
+                                  area:(NSString *)area
+                                     x:(NSNumber *)x
+                                     y:(NSNumber *)y
+                                     z:(NSNumber *)z
+{
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    if (message) {
+        params[@"message"] = message;
+    }
+    if (area) {
+        params[@"area"] = area;
+    }
+    if (x) {
+        params[@"x"] = x;
+    }
+    if (y) {
+        params[@"y"] = y;
+    }
+    if (z) {
+        params[@"z"] = z;
+    }
+    return [params copy];
 }
 
 

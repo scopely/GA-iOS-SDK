@@ -69,9 +69,43 @@ typedef enum : NSInteger
  * Following method are public for Tests only
  */
 
--(NSURLRequest *)urlRequestForCategory:(GACategory)category
-                            withParams:(NSDictionary *)params;
 -(NSDictionary *) mutableDictionaryFromRequiredFieldsWithEventID:(NSString *)eventID
                                                           params:(NSDictionary *)params;
+
+-(NSURLRequest *)urlRequestForCategory:(GACategory)category
+                            withParams:(NSDictionary *)params;
+
+-(NSDictionary *)userDataDictWithGender:(NSString *)gender
+                              birthYear:(NSNumber *)birthYear
+                            friendCount:(NSNumber *)friendCount
+                               platform:(NSString *)platform
+                                 device:(NSString *)device
+                                osMajor:(NSString *)osMajor
+                                osMinor:(NSString *)osMinor
+                             sdkVersion:(NSString *)sdkVersion
+                       installPublisher:(NSString *)installPublisher
+                            installSite:(NSString *)installSite
+                        installCampaign:(NSString *)installCampaign
+                         installAdgroup:(NSString *)installAdgroup
+                              installAd:(NSString *)installAd
+                         installKeyword:(NSString *)installKeyword
+                                  iosID:(NSString *)iosID;
+
+-(NSDictionary *)gameDesignDataDictWithValue:(NSNumber *)value
+                                        area:(NSString *)area
+                                           x:(NSNumber *)x
+                                           y:(NSNumber *)y
+                                           z:(NSNumber *)z;
+
+-(NSDictionary *)businessDataDictWithArea:(NSString *)area
+                                        x:(NSNumber *)x
+                                        y:(NSNumber *)y
+                                        z:(NSNumber *)z;
+
+-(NSDictionary *)qADataDictWithMessage:(NSString *)message
+                                  area:(NSString *)area
+                                     x:(NSNumber *)x
+                                     y:(NSNumber *)y
+                                     z:(NSNumber *)z;
 
 @end

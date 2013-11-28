@@ -53,53 +53,21 @@ static GAEngine *_gaEngine;
                installKeyword:(NSString *)installKeyword
                         iosID:(NSString *)iosID
 {
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    if (gender) {
-        params[@"gender"] = gender;
-    }
-    if (birthYear) {
-        params[@"birth_year"] = birthYear;
-    }
-    if (friendCount) {
-        params[@"friend_count"] = friendCount;
-    }
-    if (platform) {
-        params[@"platform"] = platform;
-    }
-    if (device) {
-        params[@"device"] = device;
-    }
-    if (osMajor) {
-        params[@"os_major"] = osMajor;
-    }
-    if (osMinor) {
-        params[@"os_minor"] = osMinor;
-    }
-    if (sdkVersion) {
-        params[@"sdk_version"] = sdkVersion;
-    }
-    if (installPublisher) {
-        params[@"install_publisher"] = installPublisher;
-    }
-    if (installSite) {
-        params[@"install_site"] = installSite;
-    }
-    if (installCampaign) {
-        params[@"install_campaign"] = installCampaign;
-    }
-    if (installAdgroup) {
-        params[@"install_adgroup"] = installAdgroup;
-    }
-    if (installAd) {
-        params[@"install_ad"] = installAd;
-    }
-    if (installKeyword) {
-        params[@"install_keyword"] = installKeyword;
-    }
-    if (iosID) {
-        params[@"ios_id"] = iosID;
-    }
-    
+    NSDictionary *params = [self.gaEngine userDataDictWithGender:gender
+                                                       birthYear:birthYear
+                                                     friendCount:friendCount
+                                                        platform:platform
+                                                          device:device
+                                                         osMajor:osMajor
+                                                         osMinor:osMinor
+                                                      sdkVersion:sdkVersion
+                                                installPublisher:installPublisher
+                                                     installSite:installSite
+                                                 installCampaign:installCampaign
+                                                  installAdgroup:installAdgroup
+                                                       installAd:installAd
+                                                  installKeyword:installKeyword
+                                                           iosID:iosID];
     [self.gaEngine logUserDataWithParams:params];
 }
 
@@ -138,22 +106,11 @@ static GAEngine *_gaEngine;
                              y:(NSNumber *)y
                              z:(NSNumber *)z
 {
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    if (value) {
-        params[@"value"] = value;
-    }
-    if (area) {
-        params[@"area"] = area;
-    }
-    if (x) {
-        params[@"x"] = x;
-    }
-    if (y) {
-        params[@"y"] = y;
-    }
-    if (z) {
-        params[@"z"] = z;
-    }
+    NSDictionary *params = [self.gaEngine gameDesignDataDictWithValue:value
+                                                                 area:area
+                                                                    x:x
+                                                                    y:y
+                                                                    z:z];
     [self.gaEngine logGameDesignDataEvent:eventID
                                withParams:params];
 }
@@ -180,6 +137,7 @@ static GAEngine *_gaEngine;
 }
 
 
+//DEPRECATED_ATTRIBUTE
 + (void)logBusinessDataEvent:(NSString *)eventID
                   withParams:(NSDictionary *)params
 {
@@ -192,24 +150,8 @@ static GAEngine *_gaEngine;
 + (void)logBusinessDataEvent:(NSString *)eventID
               currencyString:(NSString *)currency
                 amountNumber:(NSNumber *)amount
-                        area:(NSString *)area
-                           x:(NSNumber *)x
-                           y:(NSNumber *)y
-                           z:(NSNumber *)z
+                  withParams:(NSDictionary *)params
 {
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    if (area) {
-        params[@"area"] = area;
-    }
-    if (x) {
-        params[@"x"] = x;
-    }
-    if (y) {
-        params[@"y"] = y;
-    }
-    if (z) {
-        params[@"z"] = z;
-    }
     [self.gaEngine logBusinessDataEvent:eventID
                          currencyString:currency
                            amountNumber:amount
@@ -219,7 +161,25 @@ static GAEngine *_gaEngine;
 + (void)logBusinessDataEvent:(NSString *)eventID
               currencyString:(NSString *)currency
                 amountNumber:(NSNumber *)amount
-                  withParams:(NSDictionary *)params
+                        area:(NSString *)area
+                           x:(NSNumber *)x
+                           y:(NSNumber *)y
+                           z:(NSNumber *)z
+{
+    
+    NSDictionary *params = [self.gaEngine businessDataDictWithArea:area
+                                                                 x:x
+                                                                 y:y
+                                                                 z:z];
+    [self.gaEngine logBusinessDataEvent:eventID
+                         currencyString:currency
+                           amountNumber:amount
+                             withParams:params];
+}
+
++ (void)logBusinessDataEvent:(NSString *)eventID
+              currencyString:(NSString *)currency
+                amountNumber:(NSNumber *)amount
 {
     [GameAnalytics logBusinessDataEvent:eventID
                          currencyString:currency
@@ -244,22 +204,11 @@ static GAEngine *_gaEngine;
                                    y:(NSNumber *)y
                                    z:(NSNumber *)z
 {
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    if (message) {
-        params[@"message"] = message;
-    }
-    if (area) {
-        params[@"area"] = area;
-    }
-    if (x) {
-        params[@"x"] = x;
-    }
-    if (y) {
-        params[@"y"] = y;
-    }
-    if (z) {
-        params[@"z"] = z;
-    }
+    NSDictionary *params = [self.gaEngine qADataDictWithMessage:message
+                                                           area:area
+                                                              x:x
+                                                              y:y
+                                                              z:z];
     [self.gaEngine logQualityAssuranceDataEvent:eventID
                                      withParams:params];
 }

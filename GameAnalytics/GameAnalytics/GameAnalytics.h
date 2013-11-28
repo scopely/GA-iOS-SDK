@@ -49,7 +49,7 @@
  *                               <<"install_ad">>, <<"install_keyword">>];
  *
  */
-+ (void)logUserDataWithParams:(NSDictionary *)params DEPRECATED_ATTRIBUTE;
++ (void)logUserDataWithParams:(NSDictionary *)params;
 
 + (void)logUserDataWithGender:(NSString *)gender
                     birthYear:(NSNumber *)birthYear
@@ -87,7 +87,7 @@
  *
  */
 + (void)logGameDesignDataEvent:(NSString *)eventID
-                    withParams:(NSDictionary *)params DEPRECATED_ATTRIBUTE;
+                    withParams:(NSDictionary *)params;
 
 + (void)logGameDesignDataEvent:(NSString *)eventID
                          value:(NSNumber *)value
@@ -123,6 +123,11 @@
 + (void)logBusinessDataEvent:(NSString *)eventID
               currencyString:(NSString *)currency
                 amountNumber:(NSNumber *)amount
+                  withParams:(NSDictionary *)params;
+
++ (void)logBusinessDataEvent:(NSString *)eventID
+              currencyString:(NSString *)currency
+                amountNumber:(NSNumber *)amount
                         area:(NSString *)area
                            x:(NSNumber *)x
                            y:(NSNumber *)y
@@ -130,8 +135,7 @@
 
 + (void)logBusinessDataEvent:(NSString *)eventID
               currencyString:(NSString *)currency
-                amountNumber:(NSNumber *)amount
-                  withParams:(NSDictionary *)params;
+                amountNumber:(NSNumber *)amount;
 
 /*!
  *  @abstract Quality Assurance data
@@ -149,7 +153,7 @@
  *
  */
 + (void)logQualityAssuranceDataEvent:(NSString *)eventID
-                          withParams:(NSDictionary *)params DEPRECATED_ATTRIBUTE;
+                          withParams:(NSDictionary *)params;
 
 + (void)logQualityAssuranceDataEvent:(NSString *)eventID
                              message:(NSString *)message
