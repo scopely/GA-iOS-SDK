@@ -130,35 +130,91 @@ Add these method calls to your code to register every occurrence of the events.
 ###User data
 
 Used to tracking demographic information about individual users (players). 
-Log User data example:
+Log User data examples:
 
-    [GameAnalytics logUserDataWithParams:@{@"gender" : @"M", @"birth_year" : @1981, @"friend_count" : @10}];
+    [GameAnalytics logUserDataWithParams:@{@"gender" : @"M", @"birth_year" : @1981, @"friend_count" : @100}];
+    
+    [GameAnalytics logUserDataWithGender:@"M"
+                               birthYear:@1981
+                             friendCount:@100];
+    
+    [GameAnalytics logUserDataWithGender:@"M"
+                               birthYear:@1981
+                             friendCount:@100
+                                platform:@"platform"
+                                  device:@"device"
+                                 osMajor:@"osMajor"
+                                 osMinor:@"osMinor"
+                              sdkVersion:@"sdkVersion"
+                        installPublisher:@"installPublisher"
+                             installSite:@"installSite"
+                         installCampaign:@"installCampaign"
+                          installAdgroup:@"installAdgroup"
+                               installAd:@"installAd"
+                          installKeyword:@"installKeyword"
+                                   iosID:@"iosID"];
+
+
 
 ###Game design data
 
 Used to tracking game design events, for example level completion time.
-Log Game design data example:
+Log Game design data examples:
 
     [GameAnalytics logGameDesignDataEvent:@"PickedUpAmmo:Shotgun"
     						   withParams:@{@"area" : @"Level 1", @"x" : @1.0f, @"y" : @1.0f, @"z" : @1.0f, @"value" : @1.0f}];
+    						   
+    [GameAnalytics logGameDesignDataEvent:@"PickedUpAmmo:Shotgun"
+                                    value:@1.0f
+                                     area:@"Level 1"
+                                        x:@1.0f
+                                        y:@2.0f
+                                        z:@3.0f];
+                                        
+    [GameAnalytics logGameDesignDataEvent:@"PickedUpAmmo:Shotgun"
+                                    value:@1.0f];
+                                    
+    [GameAnalytics logGameDesignDataEvent:@"PickedUpAmmo:Shotgun"];
 
 ###Business data
 
 Used to track business related events, such as purchases of virtual items.
-Log Business data example:
+Log Business data examples:
 
     [GameAnalytics logBusinessDataEvent:@"PurchaseWeapon:Shotgun"
               currencyString:@"LTL"
                 amountNumber:@1000
                   withParams:@{@"area" : @"Level 1", @"x" : @1.0f, @"y" : @1.0f, @"z" : @1.0f}];
+                  
+    [GameAnalytics logBusinessDataEvent:@"PurchaseWeapon:Shotgun"
+                         currencyString:@"LTL"
+                           amountNumber:@100
+                                   area:@"Level1"
+                                      x:@1.0f
+                                      y:@1.5f
+                                      z:@2.5f];
+                                      
+    [GameAnalytics logBusinessDataEvent:@"PurchaseWeapon:Shotgun"
+                         currencyString:@"LTL"
+                           amountNumber:@100];
 
 ###Quality Assurance data
 
 Used to tracking events related to quality assurance, such as crashes, system specifications, etc.
-Log Quality Assurance data example:
+Log Quality Assurance data examples:
 
     [GameAnalytics logQualityAssuranceDataEvent:@"Exceptaion:NullReferenceException"
     								 withParams:@{ @"area" : @"Level 1", @"x" : @1.0f, @"y" : @1.0f, @"z" : @1.0f, @"message" : @"at Infragistics.Windows.Internal.TileManager.ItemRowColumnSizeInfo.."}];
+    								 
+    [GameAnalytics logQualityAssuranceDataEvent:@"Exceptaion:NullReferenceException"
+                                        message:@"at Infragistics.Windows.Internal.TileManager.ItemRowColumnSizeInfo.."
+                                           area:@"area"
+                                              x:@1
+                                              y:@2
+                                              z:@3];
+                                              
+    [GameAnalytics logQualityAssuranceDataEvent:@"Exceptaion:NullReferenceException"
+                                        message:@"at Infragistics.Windows.Internal.TileManager.ItemRowColumnSizeInfo.."];
 
 ###Update session ID
 
