@@ -39,9 +39,37 @@
  *  @param state          string      No          The code of the country state the user is playing from.
  *  @param friend_count   integer     No          The number of friends in the users network.
  *
+ *  optional(<<"user">>)     -> [<<"friend_count">>, <<"birth_year">>, <<"gender">>,
+ *                               <<"facebook_id">>, <<"googleplus_id">>, <<"ios_id">>,
+ *                               <<"android_id">>, <<"adtruth_id">>,
+ *                               <<"platform">>, <<"device">>, <<"os_major">>,
+ *                               <<"os_minor">>, <<"sdk_version">>,
+ *                               <<"install_publisher">>, <<"install_site">>,
+ *                               <<"install_campaign">>, <<"install_adgroup">>,
+ *                               <<"install_ad">>, <<"install_keyword">>];
+ *
  */
 + (void)logUserDataWithParams:(NSDictionary *)params;
 
++ (void)logUserDataWithGender:(NSString *)gender
+                    birthYear:(NSNumber *)birthYear
+                  friendCount:(NSNumber *)friendCount
+                     platform:(NSString *)platform
+                       device:(NSString *)device
+                      osMajor:(NSString *)osMajor
+                      osMinor:(NSString *)osMinor
+                   sdkVersion:(NSString *)sdkVersion
+             installPublisher:(NSString *)installPublisher
+                  installSite:(NSString *)installSite
+              installCampaign:(NSString *)installCampaign
+               installAdgroup:(NSString *)installAdgroup
+                    installAd:(NSString *)installAd
+               installKeyword:(NSString *)installKeyword
+                        iosID:(NSString *)iosID;
+
++ (void)logUserDataWithGender:(NSString *)gender
+                    birthYear:(NSNumber *)birthYear
+                  friendCount:(NSNumber *)friendCount;
 
 /*!
  *  @abstract Game design data
@@ -60,6 +88,18 @@
  */
 + (void)logGameDesignDataEvent:(NSString *)eventID
                     withParams:(NSDictionary *)params;
+
++ (void)logGameDesignDataEvent:(NSString *)eventID
+                         value:(NSNumber *)value
+                          area:(NSString *)area
+                             x:(NSNumber *)x
+                             y:(NSNumber *)y
+                             z:(NSNumber *)z;
+
++ (void)logGameDesignDataEvent:(NSString *)eventID
+                         value:(NSNumber *)value;
+
++ (void)logGameDesignDataEvent:(NSString *)eventID;
 
 /*!
  *  @abstract Business data
@@ -83,6 +123,14 @@
 + (void)logBusinessDataEvent:(NSString *)eventID
               currencyString:(NSString *)currency
                 amountNumber:(NSNumber *)amount
+                        area:(NSString *)area
+                           x:(NSNumber *)x
+                           y:(NSNumber *)y
+                           z:(NSNumber *)z;
+
++ (void)logBusinessDataEvent:(NSString *)eventID
+              currencyString:(NSString *)currency
+                amountNumber:(NSNumber *)amount
                   withParams:(NSDictionary *)params;
 
 /*!
@@ -102,6 +150,16 @@
  */
 + (void)logQualityAssuranceDataEvent:(NSString *)eventID
                           withParams:(NSDictionary *)params;
+
++ (void)logQualityAssuranceDataEvent:(NSString *)eventID
+                             message:(NSString *)message
+                                area:(NSString *)area
+                                   x:(NSNumber *)x
+                                   y:(NSNumber *)y
+                                   z:(NSNumber *)z;
+
++ (void)logQualityAssuranceDataEvent:(NSString *)eventID
+                             message:(NSString *)message;
 
 /*!
  *  @abstract Updates session ID
