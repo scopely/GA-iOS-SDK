@@ -14,7 +14,7 @@
 		F83234E216BD1053007A1B4E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83234E116BD1053007A1B4E /* UIKit.framework */; };
 		F83234E316BD1053007A1B4E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83234D016BD1052007A1B4E /* Foundation.framework */; };
 		F83234EC16BD1053007A1B4E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F83234EA16BD1053007A1B4E /* InfoPlist.strings */; };
-		F83234EF16BD1053007A1B4E /* GameAnalyticsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F83234EE16BD1053007A1B4E /* GameAnalyticsTests.m */; };
+		F83234EF16BD1053007A1B4E /* GAMD5Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = F83234EE16BD1053007A1B4E /* GAMD5Tests.m */; };
 		F832350816BD190D007A1B4E /* GARequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F832350716BD190D007A1B4E /* GARequest.m */; };
 		F832350916BD190D007A1B4E /* GARequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F832350716BD190D007A1B4E /* GARequest.m */; };
 		F83235C716BD3D0A007A1B4E /* NSData+GAMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = F83235C416BD3D0A007A1B4E /* NSData+GAMD5.m */; };
@@ -36,6 +36,8 @@
 		F838D01816C973E800CF5ED7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83234E116BD1053007A1B4E /* UIKit.framework */; };
 		F85A413C16D3E2FE0076005A /* GAOpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = F85A413B16D3E2FE0076005A /* GAOpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F85A413F16D3E30F0076005A /* GAReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F85A413E16D3E30F0076005A /* GAReachability.m */; };
+		F8C312D118439B7E000C7E4D /* GAIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C312D018439B7E000C7E4D /* GAIntegrationTests.m */; };
+		F8C312D41843D540000C7E4D /* GAEngineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C312D31843D540000C7E4D /* GAEngineTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,8 +74,8 @@
 		F83234E116BD1053007A1B4E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		F83234E916BD1053007A1B4E /* GameAnalyticsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GameAnalyticsTests-Info.plist"; sourceTree = "<group>"; };
 		F83234EB16BD1053007A1B4E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		F83234ED16BD1053007A1B4E /* GameAnalyticsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameAnalyticsTests.h; sourceTree = "<group>"; };
-		F83234EE16BD1053007A1B4E /* GameAnalyticsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameAnalyticsTests.m; sourceTree = "<group>"; };
+		F83234ED16BD1053007A1B4E /* GAMD5Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAMD5Tests.h; sourceTree = "<group>"; };
+		F83234EE16BD1053007A1B4E /* GAMD5Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GAMD5Tests.m; sourceTree = "<group>"; };
 		F832350616BD190D007A1B4E /* GARequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GARequest.h; sourceTree = "<group>"; };
 		F832350716BD190D007A1B4E /* GARequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GARequest.m; sourceTree = "<group>"; };
 		F83235C316BD3D0A007A1B4E /* NSData+GAMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+GAMD5.h"; sourceTree = "<group>"; };
@@ -100,6 +102,10 @@
 		F85A413D16D3E30F0076005A /* GAReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAReachability.h; sourceTree = "<group>"; };
 		F85A413E16D3E30F0076005A /* GAReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAReachability.m; sourceTree = "<group>"; };
 		F8AC14B416CA69CF00FF9E22 /* GARequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GARequestDelegate.h; sourceTree = "<group>"; };
+		F8C312CF18439B7E000C7E4D /* GAIntegrationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIntegrationTests.h; sourceTree = "<group>"; };
+		F8C312D018439B7E000C7E4D /* GAIntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAIntegrationTests.m; sourceTree = "<group>"; };
+		F8C312D21843D540000C7E4D /* GAEngineTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAEngineTests.h; sourceTree = "<group>"; };
+		F8C312D31843D540000C7E4D /* GAEngineTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAEngineTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,10 +196,14 @@
 		F83234E716BD1053007A1B4E /* GameAnalyticsTests */ = {
 			isa = PBXGroup;
 			children = (
-				F83234ED16BD1053007A1B4E /* GameAnalyticsTests.h */,
-				F83234EE16BD1053007A1B4E /* GameAnalyticsTests.m */,
+				F83234ED16BD1053007A1B4E /* GAMD5Tests.h */,
+				F83234EE16BD1053007A1B4E /* GAMD5Tests.m */,
 				F83235EE16BDA863007A1B4E /* GARequestTest.h */,
 				F83235EF16BDA864007A1B4E /* GARequestTest.m */,
+				F8C312CF18439B7E000C7E4D /* GAIntegrationTests.h */,
+				F8C312D018439B7E000C7E4D /* GAIntegrationTests.m */,
+				F8C312D21843D540000C7E4D /* GAEngineTests.h */,
+				F8C312D31843D540000C7E4D /* GAEngineTests.m */,
 				F83235E516BDA5E3007A1B4E /* libOCMock.a */,
 				F83235E616BDA5E3007A1B4E /* OCMock */,
 				F83234E816BD1053007A1B4E /* Supporting Files */,
@@ -389,10 +399,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F83234EF16BD1053007A1B4E /* GameAnalyticsTests.m in Sources */,
+				F83234EF16BD1053007A1B4E /* GAMD5Tests.m in Sources */,
 				F832350916BD190D007A1B4E /* GARequest.m in Sources */,
 				F83235C816BD3D0A007A1B4E /* NSData+GAMD5.m in Sources */,
+				F8C312D41843D540000C7E4D /* GAEngineTests.m in Sources */,
 				F83235CA16BD3D0A007A1B4E /* NSString+GAMD5.m in Sources */,
+				F8C312D118439B7E000C7E4D /* GAIntegrationTests.m in Sources */,
 				F83235F016BDA864007A1B4E /* GARequestTest.m in Sources */,
 				F838D01316C9717500CF5ED7 /* GAEngine.m in Sources */,
 				F838D01716C971C600CF5ED7 /* GASettings.m in Sources */,
