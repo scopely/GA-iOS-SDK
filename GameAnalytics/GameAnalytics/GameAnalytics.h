@@ -270,7 +270,7 @@
  *  If enabled, data will be submitted to the GameAnalytics servers
  *  while the mobile device is roaming (internet connection via carrier data network).
  *
- *  @note The default setting for this method is NO (enabled).
+ *  @note The default setting for this method is NO (disabled).
  *
  *  @param value @c YES to enable submiting while roaming, @c NO disable.
  *
