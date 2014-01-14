@@ -230,9 +230,7 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
     
     if (!SCNetworkReachabilitySetCallback(self.reachabilityRef, TMReachabilityCallback, &context))
     {
-#ifdef DEBUG
-        NSLog(@"SCNetworkReachabilitySetCallback() failed: %s", SCErrorString(SCError()));
-#endif
+        CoreLogType(WBLogLevelFatal, WBLogTypeGameAnalytics, @"SCNetworkReachabilitySetCallback() failed: %s", SCErrorString(SCError()));
         
         // Clear out the dispatch queue
         if(self.reachabilitySerialQueue)
@@ -251,9 +249,7 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
     // Set it as our reachability queue, which will retain the queue
     if(!SCNetworkReachabilitySetDispatchQueue(self.reachabilityRef, self.reachabilitySerialQueue))
     {
-#ifdef DEBUG
-        NSLog(@"SCNetworkReachabilitySetDispatchQueue() failed: %s", SCErrorString(SCError()));
-#endif
+        CoreLogType(WBLogLevelFatal, WBLogTypeGameAnalytics, @"SCNetworkReachabilitySetDispatchQueue() failed: %s", SCErrorString(SCError()));
         
         // UH OH - FAILURE!
         

@@ -38,7 +38,7 @@
 {
     if (self.state != GARequestStatusNotStarted && self.state != GARequestStatusCancelled)
     {
-        NSLog(@"Attempt to start existing request. Ignoring.");
+        CoreLogType(WBLogLevelWarn, WBLogTypeGameAnalytics, @"Attempt to start existing request. Ignoring.");
         return;
     }
     
@@ -136,8 +136,7 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     
-    if([GASettings isDebugLogEnabled])
-        NSLog(@"GARequest to %@ failed with error: %@", self.request.URL, error.localizedDescription);
+    CoreLogType(WBLogLevelFatal, WBLogTypeGameAnalytics, @"GARequest to %@ failed with error: %@", self.request.URL, error.localizedDescription);
     
     [self setState:GARequestStatusFailed];
 }
@@ -149,14 +148,15 @@
     
     if (httpResponse.statusCode != 202)//Accepted
     {
-        if([GASettings isDebugLogEnabled])
-            NSLog(@"GARequest finished with repsonse code: %d", httpResponse.statusCode);
+        CoreLogType(WBLogLevelInfo, WBLogTypeGameAnalytics, @"GARequest finished with repsonse code: %d", httpResponse.statusCode);
         
         [urlConnection cancel];
         [self setState:GARequestStatusFailed];
         
-    } else if([GASettings isDebugLogEnabled]) {
-        NSLog(@"GARequest finished succesefuly");
+    }
+    else
+    {
+        CoreLogType(WBLogLevelInfo, WBLogTypeGameAnalytics, @"GARequest finished succesefuly");
     }
 }
 

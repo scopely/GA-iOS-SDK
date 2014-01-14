@@ -76,8 +76,7 @@ static NSMutableSet *offlineArchive;
 }
 
 -(void) checkAndRestoreFrozenOperations {
-    if([GASettings isDebugLogEnabled])
-        NSLog(@"checkAndRestoreFrozenOperations with request count: %d", [offlineArchive count]);
+    CoreLogType(WBLogLevelDebug, WBLogTypeGameAnalytics, @"checkAndRestoreFrozenOperations with request count: %d", [offlineArchive count]);
     
     for(GARequest *request in [offlineArchive allObjects])
     {
@@ -97,8 +96,7 @@ static NSMutableSet *offlineArchive;
 {
     if([GASettings isBatchRequestsEnabled] && [self isReachable])
     {
-        if([GASettings isDebugLogEnabled])
-            NSLog(@"sendBatch with request count: %d", [offlineArchive count]);
+        CoreLogType(WBLogLevelTrace, WBLogTypeGameAnalytics, @"sendBatch with request count: %d", [offlineArchive count]);
         
         for(GARequest *request in [offlineArchive allObjects])
         {
@@ -128,8 +126,7 @@ static NSMutableSet *offlineArchive;
 }
 
 -(void) saveCache {
-    if([GASettings isDebugLogEnabled])
-        NSLog(@"save Offline/Batch Request Archive");
+    CoreLogType(WBLogLevelDebug, WBLogTypeGameAnalytics, @"save Offline/Batch Request Archive");
     
     [self saveCacheData:[NSKeyedArchiver archivedDataWithRootObject:offlineArchive]];
     [offlineArchive removeAllObjects];
@@ -137,8 +134,7 @@ static NSMutableSet *offlineArchive;
 
 -(void) getCachedArchive
 {
-    if([GASettings isDebugLogEnabled])
-        NSLog(@"load Offline/Batch Request Archive");
+    CoreLogType(WBLogLevelDebug, WBLogTypeGameAnalytics, @"load Offline/Batch Request Archive");
 
     NSString *filePath = [[self cacheDirectoryName] stringByAppendingPathComponent:@"Offline.archive"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];
@@ -191,7 +187,7 @@ static NSMutableSet *offlineArchive;
 }
 
 -(void) emptyCache {
-    NSLog(@"emptyCache");
+    CoreLogType(WBLogLevelDebug, WBLogTypeGameAnalytics, @"emptyCache");
 }
 
 
@@ -240,8 +236,7 @@ static NSMutableSet *offlineArchive;
 
 -(void)logUserDataWithParams:(NSDictionary *)params
 {
-    if([GASettings isDebugLogEnabled])
-        NSLog(@"logUserDataWithParams called");
+    CoreLogType(WBLogLevelInfo, WBLogTypeGameAnalytics, @"logUserDataWithParams called\nparams %@", params);
     
     NSDictionary *mParams = [self mutableDictionaryFromRequiredFieldsWithEventID:nil params:params];
     if(!mParams) return;
@@ -256,8 +251,7 @@ static NSMutableSet *offlineArchive;
 -(void)logGameDesignDataEvent:(NSString *)eventID
                    withParams:(NSDictionary *)params
 {
-    if([GASettings isDebugLogEnabled])
-        NSLog(@"logGameDesignDataEvent called");
+    CoreLogType(WBLogLevelInfo, WBLogTypeGameAnalytics, @"logGameDesignDataEvent called eventID %@ \nparams %@", eventID, params);
     NSDictionary *mParams = [self mutableDictionaryFromRequiredFieldsWithEventID:eventID params:params];
     if(!mParams) return;
     
@@ -274,8 +268,7 @@ static NSMutableSet *offlineArchive;
                amountNumber:(NSNumber *)amount
                  withParams:(NSDictionary *)params
 {
-    if([GASettings isDebugLogEnabled])
-        NSLog(@"logBusinessDataEvent called");
+    CoreLogType(WBLogLevelInfo, WBLogTypeGameAnalytics, @"logBusinessDataEvent called eventID %@, currency %@, amount %@\nparams %@", eventID, currency, amount, params);
 
     NSDictionary *paramsDict = [self mutableDictionaryFromRequiredFieldsWithEventID:eventID
                                                                              params:params];
@@ -286,8 +279,7 @@ static NSMutableSet *offlineArchive;
     {
         if(![params objectForKey:@"currency"])
         {
-            if([GASettings isDebugLogEnabled])
-                NSLog(@"currency is required");
+            CoreLogType(WBLogLevelError, WBLogTypeGameAnalytics, @"currency is required");
             return;
         } else {
             currency = [params objectForKey:@"currency"];
@@ -298,8 +290,7 @@ static NSMutableSet *offlineArchive;
     {
         if(![params objectForKey:@"amount"])
         {
-            if([GASettings isDebugLogEnabled])
-                NSLog(@"amount is required");
+            CoreLogType(WBLogLevelError, WBLogTypeGameAnalytics, @"amount is required");
             return;
         } else {
             amount = [params objectForKey:@"amount"];
@@ -322,8 +313,7 @@ static NSMutableSet *offlineArchive;
 -(void)logQualityAssuranceDataEvent:(NSString *)eventID
                          withParams:(NSDictionary *)params
 {
-    if([GASettings isDebugLogEnabled])
-        NSLog(@"logQualityAssuranceDataEvent called");
+    CoreLogType(WBLogLevelInfo, WBLogTypeGameAnalytics, @"logQualityAssuranceDataEvent called eventID %@\nparams %@", eventID, params);
     NSDictionary *mParams = [self mutableDictionaryFromRequiredFieldsWithEventID:eventID
                                                                           params:params];
     if(!mParams) return;
@@ -362,8 +352,7 @@ static NSMutableSet *offlineArchive;
 -(void)addRequestToOfflineArchiveMutableSet:(GARequest *)request
 {
     [offlineArchive addObject:request];
-    if([GASettings isDebugLogEnabled])
-        NSLog(@"request was added to offline/Batch archive set");
+    CoreLogType(WBLogLevelWarn, WBLogTypeGameAnalytics, @"request was added to offline/Batch archive set");
 }
 
 -(void)removeRequestFromOfflineArchiveMutableSet:(GARequest *)request
@@ -503,7 +492,7 @@ static NSMutableSet *offlineArchive;
                                                        options:kNilOptions
                                                          error:&jsonError];
     if(jsonError) {
-        NSLog(@"JSON error: %@", jsonError.localizedDescription);
+        CoreLogType(WBLogLevelError, WBLogTypeGameAnalytics, @"JSON error: %@", jsonError.localizedDescription);
     }
     
     NSString* jsonDataString = [[NSString alloc] initWithData:jsonData encoding:NSASCIIStringEncoding];
@@ -677,8 +666,7 @@ static NSMutableSet *offlineArchive;
 {
     if([self.reachability currentReachabilityStatus] == ReachableViaWiFi)
     {
-        if([GASettings isDebugLogEnabled])
-            NSLog(@"reachabilityChanged: Server api.gameanalytics.com is reachable via Wifi");
+        CoreLogType(WBLogLevelTrace, WBLogTypeGameAnalytics, @"reachabilityChanged: Server api.gameanalytics.com is reachable via Wifi");
         if(![GASettings isBatchRequestsEnabled])//don't send single requests if Batch Requests is enabled
         {
             [self checkAndRestoreFrozenOperations];
@@ -686,8 +674,7 @@ static NSMutableSet *offlineArchive;
     }
     else if([self.reachability currentReachabilityStatus] == ReachableViaWWAN)
     {
-        if([GASettings isDebugLogEnabled])
-            NSLog(@"reachabilityChanged: Server api.gameanalytics.com is reachable only via cellular data");
+        CoreLogType(WBLogLevelTrace, WBLogTypeGameAnalytics, @"reachabilityChanged: Server api.gameanalytics.com is reachable only via cellular data");
 
         if(![GASettings isBatchRequestsEnabled])//don't send single requests if Batch Requests is enabled
         {
@@ -696,8 +683,7 @@ static NSMutableSet *offlineArchive;
     }
     else if([self.reachability currentReachabilityStatus] == NotReachable)
     {
-        if([GASettings isDebugLogEnabled])
-            NSLog(@"reachabilityChanged: Server api.gameanalytics.com is not reachable");
+        CoreLogType(WBLogLevelTrace, WBLogTypeGameAnalytics, @"reachabilityChanged: Server api.gameanalytics.com is not reachable");
         [self freezeOperations];
     }
 }
