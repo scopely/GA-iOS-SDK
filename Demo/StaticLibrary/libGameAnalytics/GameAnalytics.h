@@ -123,6 +123,11 @@
 + (void)logBusinessDataEvent:(NSString *)eventID
               currencyString:(NSString *)currency
                 amountNumber:(NSNumber *)amount
+                  withParams:(NSDictionary *)params;
+
++ (void)logBusinessDataEvent:(NSString *)eventID
+              currencyString:(NSString *)currency
+                amountNumber:(NSNumber *)amount
                         area:(NSString *)area
                            x:(NSNumber *)x
                            y:(NSNumber *)y
@@ -130,8 +135,7 @@
 
 + (void)logBusinessDataEvent:(NSString *)eventID
               currencyString:(NSString *)currency
-                amountNumber:(NSNumber *)amount
-                  withParams:(NSDictionary *)params;
+                amountNumber:(NSNumber *)amount;
 
 /*!
  *  @abstract Quality Assurance data
@@ -266,7 +270,7 @@
  *  If enabled, data will be submitted to the GameAnalytics servers
  *  while the mobile device is roaming (internet connection via carrier data network).
  *
- *  @note The default setting for this method is NO (enabled).
+ *  @note The default setting for this method is NO (disabled).
  *
  *  @param value @c YES to enable submiting while roaming, @c NO disable.
  *
