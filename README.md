@@ -1,4 +1,8 @@
-#[GameAnalytics REST API](http://support.gameanalytics.com/forums/21598176-The-REST-API) wrapper for iOS
+#[GameAnalytics REST API](http://support.gameanalytics.com/forums/21598176-The-REST-API) SDK for iOS
+
+[![Version](https://cocoapod-badges.herokuapp.com/v/GA-iOS-SDK/badge.png)](http://cocoadocs.org/docsets/GA-iOS-SDK)
+[![Platform](https://cocoapod-badges.herokuapp.com/p/GA-iOS-SDK/badge.png)](http://cocoadocs.org/docsets/GA-iOS-SDK)
+[![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)](http://opensource.org/licenses/MIT)
 
 
 The GameAnalytics API iOS Wrapper is designed to send game event data to the GameAnalytics service for processing and visualization. By collecting data from players playing your game you will be able to identify bugs and balance issues, track purchases, and determine how the players really play your game.
