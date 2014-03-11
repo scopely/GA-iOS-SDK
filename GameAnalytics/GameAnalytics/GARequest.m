@@ -148,7 +148,7 @@
     
     if (httpResponse.statusCode != 202)//Accepted
     {
-        CoreLogType(WBLogLevelInfo, WBLogTypeGameAnalytics, @"GARequest finished with repsonse code: %d", httpResponse.statusCode);
+        CoreLogType(WBLogLevelInfo, WBLogTypeGameAnalytics, @"GARequest finished with repsonse code: %d", (int)httpResponse.statusCode);
         
         [urlConnection cancel];
         [self setState:GARequestStatusFailed];
