@@ -76,7 +76,7 @@ static NSMutableSet *offlineArchive;
 }
 
 -(void) checkAndRestoreFrozenOperations {
-    CoreLogType(WBLogLevelDebug, WBLogTypeGameAnalytics, @"checkAndRestoreFrozenOperations with request count: %d", (int)[offlineArchive count]);
+    CoreLogType(WBLogLevelDebug, WBLogTypeGameAnalytics, @"checkAndRestoreFrozenOperations with request count: %ld", (unsigned long)[offlineArchive count]);
     
     for(GARequest *request in [offlineArchive allObjects])
     {
@@ -96,7 +96,7 @@ static NSMutableSet *offlineArchive;
 {
     if([GASettings isBatchRequestsEnabled] && [self isReachable])
     {
-        CoreLogType(WBLogLevelTrace, WBLogTypeGameAnalytics, @"sendBatch with request count: %d", (int)[offlineArchive count]);
+        CoreLogType(WBLogLevelTrace, WBLogTypeGameAnalytics, @"sendBatch with request count: %ld", (unsigned long)[offlineArchive count]);
         
         for(GARequest *request in [offlineArchive allObjects])
         {
